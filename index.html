@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Le Labo — Créations web & visuelles</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FFFFFF;
+    --ink:#1B1830;
+    --coral:#FF6452;
+    --teal:#17B8A6;
+    --violet:#7C5CFC;
+    --sunflower:#FFC53D;
+    --mist:#F4F2FB;
+    --line:#E8E4F5;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    overflow-x:hidden;
+  }
+
+  /* ---------- Decorative blobs ---------- */
+  .blob{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(60px);
+    opacity:.35;
+    z-index:0;
+    pointer-events:none;
+  }
+  .blob1{width:340px;height:340px; background:var(--sunflower); top:-120px; left:-100px;}
+  .blob2{width:280px;height:280px; background:var(--violet); top:60px; right:-120px;}
+  .blob3{width:260px;height:260px; background:var(--teal); bottom:-100px; left:40%;}
+
+  /* ---------- Header ---------- */
+  header{
+    position:relative;
+    z-index:1;
+    max-width:1100px;
+    margin:0 auto;
+    padding:64px 24px 40px;
+    text-align:center;
+  }
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:'Space Grotesk', sans-serif;
+    font-size:14px;
+    font-weight:600;
+    letter-spacing:.02em;
+    color:var(--violet);
+    background:var(--mist);
+    padding:6px 14px;
+    border-radius:999px;
+    margin-bottom:20px;
+  }
+  h1{
+    font-family:'Fredoka', sans-serif;
+    font-weight:700;
+    font-size:clamp(2.4rem, 6vw, 4.2rem);
+    line-height:1.05;
+    letter-spacing:-.01em;
+  }
+  h1 .accent{
+    color:var(--coral);
+    position:relative;
+    display:inline-block;
+  }
+  h1 .accent svg{
+    position:absolute;
+    left:0; bottom:-10px;
+    width:100%; height:14px;
+  }
+  header p.sub{
+    max-width:520px;
+    margin:20px auto 0;
+    font-size:1.05rem;
+    color:#5A5670;
+    line-height:1.6;
+  }
+
+  /* ---------- Filters ---------- */
+  .filters{
+    position:relative;
+    z-index:1;
+    max-width:1100px;
+    margin:0 auto;
+    padding:0 24px 32px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    justify-content:center;
+  }
+  .pill{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    font-size:14px;
+    padding:9px 18px;
+    border-radius:999px;
+    border:2px solid var(--ink);
+    background:var(--paper);
+    color:var(--ink);
+    cursor:pointer;
+    transition:transform .15s ease, background .15s ease, color .15s ease;
+  }
+  .pill:hover{ transform:translateY(-2px) rotate(-1deg); }
+  .pill.active{
+    background:var(--ink);
+    color:var(--paper);
+  }
+
+  /* ---------- Grid ---------- */
+  main{
+    position:relative;
+    z-index:1;
+    max-width:1100px;
+    margin:0 auto;
+    padding:0 24px 80px;
+  }
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    grid-auto-rows:170px;
+    grid-auto-flow:dense;
+    gap:18px;
+  }
+  @media(max-width:900px){
+    .grid{ grid-template-columns:repeat(2,1fr); }
+  }
+  @media(max-width:520px){
+    .grid{ grid-template-columns:1fr; grid-auto-rows:180px; }
+    .tile.wide, .tile.tall, .tile.big{ grid-column:auto !important; grid-row:auto !important; }
+  }
+
+  .tile{
+    position:relative;
+    border-radius:20px;
+    overflow:hidden;
+    cursor:pointer;
+    border:2px solid var(--ink);
+    text-decoration:none;
+    color:var(--ink);
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    transition:transform .22s cubic-bezier(.2,.9,.3,1.3), box-shadow .22s ease;
+    box-shadow:5px 5px 0 var(--ink);
+  }
+  .tile:hover{
+    transform:translate(-3px,-5px) rotate(-1deg);
+    box-shadow:8px 10px 0 var(--ink);
+  }
+  .tile:nth-child(even):hover{ transform:translate(-3px,-5px) rotate(1deg); }
+
+  .tile .art{
+    position:absolute; inset:0;
+    display:flex; align-items:center; justify-content:center;
+    font-size:3rem;
+  }
+  .tile .icon-emoji{ font-size:3.4rem; filter:drop-shadow(2px 3px 0 rgba(0,0,0,.12)); }
+
+  .tile .caption{
+    position:relative;
+    background:rgba(255,255,255,.94);
+    backdrop-filter:blur(2px);
+    padding:12px 14px;
+    border-top:2px solid var(--ink);
+  }
+  .tile .cat-tag{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:11px;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.05em;
+    opacity:.6;
+    display:block;
+    margin-bottom:2px;
+  }
+  .tile .name{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    font-size:15px;
+  }
+
+  .tile.wide{ grid-column:span 2; }
+  .tile.tall{ grid-row:span 2; }
+  .tile.big{ grid-column:span 2; grid-row:span 2; }
+
+  /* ---------- Modal ---------- */
+  .modal-overlay{
+    position:fixed; inset:0;
+    background:rgba(27,24,48,.55);
+    display:none;
+    align-items:center; justify-content:center;
+    z-index:50;
+    padding:24px;
+  }
+  .modal-overlay.open{ display:flex; }
+  .modal{
+    background:var(--paper);
+    border:2px solid var(--ink);
+    border-radius:22px;
+    max-width:480px;
+    width:100%;
+    box-shadow:8px 10px 0 var(--ink);
+    overflow:hidden;
+  }
+  .modal .art{
+    height:220px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:5rem;
+    border-bottom:2px solid var(--ink);
+  }
+  .modal .body{ padding:24px; }
+  .modal .cat-tag{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:12px; font-weight:600; text-transform:uppercase;
+    letter-spacing:.05em; color:var(--violet);
+  }
+  .modal h3{
+    font-family:'Fredoka', sans-serif;
+    font-size:1.6rem;
+    margin:6px 0 10px;
+  }
+  .modal p{
+    color:#5A5670;
+    line-height:1.6;
+    margin-bottom:20px;
+    font-size:.95rem;
+  }
+  .modal .actions{ display:flex; gap:10px; }
+  .btn{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    font-size:14px;
+    padding:10px 18px;
+    border-radius:999px;
+    border:2px solid var(--ink);
+    cursor:pointer;
+    text-decoration:none;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+  }
+  .btn.primary{ background:var(--ink); color:var(--paper); }
+  .btn.ghost{ background:var(--paper); color:var(--ink); }
+  .close-x{
+    position:absolute; top:14px; right:14px;
+    width:34px; height:34px;
+    border-radius:50%;
+    border:2px solid var(--ink);
+    background:var(--paper);
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer;
+    font-size:16px;
+    z-index:2;
+  }
+
+  /* ---------- Footer ---------- */
+  footer{
+    position:relative; z-index:1;
+    text-align:center;
+    padding:40px 24px 60px;
+    font-family:'Space Grotesk', sans-serif;
+    font-size:14px;
+    color:#8A85A0;
+  }
+  footer a{ color:var(--ink); text-decoration:none; border-bottom:2px solid var(--sunflower); }
+
+  ::selection{ background:var(--sunflower); }
+</style>
+</head>
+<body>
+
+<div class="blob blob1"></div>
+<div class="blob blob2"></div>
+<div class="blob blob3"></div>
+
+<header>
+  <span class="eyebrow">✦ Portfolio interactif</span>
+  <h1>Un labo de <span class="accent">petites idées<svg viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 10 Q 50 2, 100 8 T 198 6" stroke="#FF6452" stroke-width="4" fill="none" stroke-linecap="round"/></svg></span> mises en ligne</h1>
+  <p class="sub">Une collection d'expériences web, d'outils et de visuels que je fabrique pour le plaisir. Cliquez sur une tuile pour explorer.</p>
+</header>
+
+<div class="filters" id="filters"></div>
+
+<main>
+  <div class="grid" id="grid"></div>
+</main>
+
+<footer>
+  Fait à la main avec de la curiosité · <a href="#" id="contact-link">me contacter</a>
+</footer>
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" id="modalCard" style="position:relative;">
+    <div class="close-x" id="closeModal">✕</div>
+    <div class="art" id="modalArt"></div>
+    <div class="body">
+      <span class="cat-tag" id="modalCat"></span>
+      <h3 id="modalName"></h3>
+      <p id="modalDesc"></p>
+      <div class="actions">
+        <a class="btn primary" id="modalLink" href="#" target="_blank" rel="noopener">Voir le projet ↗</a>
+        <button class="btn ghost" id="modalCancel">Fermer</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* =========================================================
+   DONNÉES DES PROJETS — À REMPLACER PAR TES VRAIS PROJETS
+   Chaque objet : 
+   - name        : nom du projet
+   - link        : URL (ex: GitHub Pages)
+   - image       : URL d'image (optionnel — laisser "" pour un visuel généré)
+   - emoji       : emoji utilisé si pas d'image
+   - category    : catégorie pour le filtre
+   - description : courte description
+   - color       : couleur de fond de la tuile (un des tokens ci-dessous)
+   - size        : "" | "wide" | "tall" | "big"  → taille de la tuile
+   ========================================================= */
+const COLORS = {
+  coral: "#FF6452",
+  teal: "#17B8A6",
+  violet: "#7C5CFC",
+  sunflower: "#FFC53D",
+  mist: "#F4F2FB"
+};
+
+const projects = [
+  {
+    name: "Générateur de bruit",
+    link: "https://github.com/",
+    image: "",
+    emoji: "🌊",
+    category: "Expérience",
+    description: "Une petite expérience visuelle générative où chaque rafraîchissement produit un paysage de bruit unique, jouable au clic.",
+    color: "teal",
+    size: "big"
+  },
+  {
+    name: "Palette Picker",
+    link: "https://github.com/",
+    image: "",
+    emoji: "🎨",
+    category: "Outil",
+    description: "Un outil rapide pour extraire une palette de couleurs harmonieuse à partir de n'importe quelle image.",
+    color: "sunflower",
+    size: ""
+  },
+  {
+    name: "Cartes de constellations",
+    link: "https://github.com/",
+    image: "",
+    emoji: "✨",
+    category: "Illustration",
+    description: "Une série d'illustrations SVG animées représentant des constellations imaginaires, dessinées à la main.",
+    color: "violet",
+    size: "tall"
+  },
+  {
+    name: "Compteur de respirations",
+    link: "https://github.com/",
+    image: "",
+    emoji: "🫧",
+    category: "Web interactif",
+    description: "Une mini-app de respiration guidée avec animation fluide, pensée comme une pause de 60 secondes.",
+    color: "coral",
+    size: ""
+  },
+  {
+    name: "Machine à motifs",
+    link: "https://github.com/",
+    image: "",
+    emoji: "🔷",
+    category: "Outil",
+    description: "Génère des motifs géométriques répétables exportables en SVG, avec des réglages en direct.",
+    color: "mist",
+    size: "wide"
+  },
+  {
+    name: "Simulateur de foule",
+    link: "https://github.com/",
+    image: "",
+    emoji: "🐜",
+    category: "Expérience",
+    description: "Une simulation de comportement collectif inspirée des colonies de fourmis, rendue en canvas.",
+    color: "teal",
+    size: ""
+  },
+  {
+    name: "Typo cinétique",
+    link: "https://github.com/",
+    image: "",
+    emoji: "🔤",
+    category: "Illustration",
+    description: "Des expérimentations de typographie animée réagissant au curseur et au scroll.",
+    color: "sunflower",
+    size: ""
+  },
+  {
+    name: "Horloge des saisons",
+    link: "https://github.com/",
+    image: "",
+    emoji: "🍂",
+    category: "Web interactif",
+    description: "Une horloge qui affiche l'heure sous forme de cycle de saisons illustré, mise à jour en direct.",
+    color: "coral",
+    size: "wide"
+  }
+];
+
+/* ---------- Rendu ---------- */
+const grid = document.getElementById('grid');
+const filtersEl = document.getElementById('filters');
+const categories = ["Tout", ...new Set(projects.map(p => p.category))];
+let activeCat = "Tout";
+
+function renderFilters(){
+  filtersEl.innerHTML = "";
+  categories.forEach(cat => {
+    const btn = document.createElement('button');
+    btn.className = "pill" + (cat === activeCat ? " active" : "");
+    btn.textContent = cat;
+    btn.onclick = () => { activeCat = cat; renderFilters(); renderGrid(); };
+    filtersEl.appendChild(btn);
+  });
+}
+
+function renderGrid(){
+  grid.innerHTML = "";
+  const list = projects.filter(p => activeCat === "Tout" || p.category === activeCat);
+  list.forEach((p, i) => {
+    const tile = document.createElement('a');
+    tile.className = "tile" + (p.size ? " " + p.size : "");
+    tile.href = "#";
+    tile.style.background = COLORS[p.color] || COLORS.mist;
+    tile.onclick = (e) => { e.preventDefault(); openModal(p); };
+
+    const art = document.createElement('div');
+    art.className = "art";
+    if (p.image) {
+      art.style.backgroundImage = `url(${p.image})`;
+      art.style.backgroundSize = "cover";
+      art.style.backgroundPosition = "center";
+    } else {
+      art.innerHTML = `<span class="icon-emoji">${p.emoji}</span>`;
+    }
+
+    const caption = document.createElement('div');
+    caption.className = "caption";
+    caption.innerHTML = `<span class="cat-tag">${p.category}</span><span class="name">${p.name}</span>`;
+
+    tile.appendChild(art);
+    tile.appendChild(caption);
+    grid.appendChild(tile);
+  });
+}
+
+/* ---------- Modal ---------- */
+const overlay = document.getElementById('modalOverlay');
+const modalArt = document.getElementById('modalArt');
+const modalCat = document.getElementById('modalCat');
+const modalName = document.getElementById('modalName');
+const modalDesc = document.getElementById('modalDesc');
+const modalLink = document.getElementById('modalLink');
+
+function openModal(p){
+  modalArt.style.background = COLORS[p.color] || COLORS.mist;
+  if (p.image) {
+    modalArt.style.backgroundImage = `url(${p.image})`;
+    modalArt.style.backgroundSize = "cover";
+    modalArt.style.backgroundPosition = "center";
+    modalArt.innerHTML = "";
+  } else {
+    modalArt.style.backgroundImage = "none";
+    modalArt.innerHTML = p.emoji;
+  }
+  modalCat.textContent = p.category;
+  modalName.textContent = p.name;
+  modalDesc.textContent = p.description;
+  modalLink.href = p.link;
+  overlay.classList.add('open');
+}
+function closeModal(){ overlay.classList.remove('open'); }
+
+document.getElementById('closeModal').onclick = closeModal;
+document.getElementById('modalCancel').onclick = closeModal;
+overlay.onclick = (e) => { if (e.target === overlay) closeModal(); };
+document.addEventListener('keydown', (e) => { if (e.key === "Escape") closeModal(); });
+
+renderFilters();
+renderGrid();
+</script>
+
+</body>
+</html>
