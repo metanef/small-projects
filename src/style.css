@@ -273,3 +273,10 @@ footer .links{
 footer a{ color:var(--ink); text-decoration:none; border-bottom:2px solid var(--pink); }
 footer a:hover{ font-weight:700; }
 ::selection{ background:var(--pink); }
+
+/* ---------- Lenis Smooth Scroll ---------- */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+
