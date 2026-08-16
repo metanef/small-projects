@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" fill="none">
+
+  <g transform="translate(2, -5)">
+    <!-- 'S' - Larger Monotype Letter in Violet (#c65cfc) -->
+    <!-- Outer Dark Outline for S -->
+    <path d="M 62 30 C 42 30 30 40 30 52 C 30 63 42 67 52 70 C 63 73 70 77 70 85 C 70 94 56 99 40 99 C 32 99 26 95 23 90" 
+          stroke="#1B1830" stroke-width="21" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Inner Colored Fill for S -->
+    <path d="M 62 30 C 42 30 30 40 30 52 C 30 63 42 67 52 70 C 63 73 70 77 70 85 C 70 94 56 99 40 99 C 32 99 26 95 23 90" 
+          stroke="#c65cfc" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- 'P' - Smaller Monotype Letter in Teal (#17B8A6), Interlocking into the S -->
+    <!-- Outer Dark Outline for P -->
+    <path d="M 62 50 V 96 M 62 50 H 78 C 87 50 93 56 93 64 C 93 72 87 78 78 78 H 62" 
+          stroke="#1B1830" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Inner Colored Fill for P -->
+    <path d="M 62 50 V 96 M 62 50 H 78 C 87 50 93 56 93 64 C 93 72 87 78 78 78 H 62" 
+          stroke="#17B8A6" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  
+</svg>
