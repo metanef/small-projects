@@ -24,17 +24,17 @@ const projects = [
     link: "https://github.com/",
     image: "",
     emoji: "🌊",
-    category: "Experiment",
+    category: "app",
     description: "A small generative visual experiment where each refresh produces a unique noise landscape, playable on click.",
     color: "teal",
-    size: "big"
+    size: ""
   },
   {
     name: "Palette Picker",
     link: "https://github.com/",
     image: "",
     emoji: "🎨",
-    category: "Tool",
+    category: "tool",
     description: "A quick tool to extract a harmonious color palette from any image.",
     color: "sunflower",
     size: ""
@@ -44,17 +44,17 @@ const projects = [
     link: "https://github.com/",
     image: "",
     emoji: "✨",
-    category: "Illustration",
+    category: "game",
     description: "A series of animated SVG illustrations depicting imaginary constellations, drawn by hand.",
     color: "violet",
-    size: "tall"
+    size: ""
   },
   {
     name: "Breathing Counter",
     link: "https://github.com/",
     image: "",
     emoji: "🫧",
-    category: "Interactive Web",
+    category: "app",
     description: "A guided breathing mini-app with smooth animation, designed as a 60-second break.",
     color: "coral",
     size: ""
@@ -64,17 +64,17 @@ const projects = [
     link: "https://github.com/",
     image: "",
     emoji: "🔷",
-    category: "Tool",
+    category: "tool",
     description: "Generates repeatable geometric patterns exportable in SVG, with live controls.",
     color: "mist",
-    size: "wide"
+    size: ""
   },
   {
     name: "Crowd Simulator",
     link: "https://github.com/",
     image: "",
     emoji: "🐜",
-    category: "Experiment",
+    category: "game",
     description: "A collective behavior simulation inspired by ant colonies, rendered on canvas.",
     color: "teal",
     size: ""
@@ -84,7 +84,7 @@ const projects = [
     link: "https://github.com/",
     image: "",
     emoji: "🔤",
-    category: "Illustration",
+    category: "tool",
     description: "Kinetic typography experiments reacting to cursor movement and scroll.",
     color: "sunflower",
     size: ""
@@ -94,20 +94,30 @@ const projects = [
     link: "https://github.com/",
     image: "",
     emoji: "🍂",
-    category: "Interactive Web",
+    category: "app",
     description: "A clock displaying time as an illustrated cycle of seasons, updated live.",
     color: "coral",
-    size: "wide"
+    size: ""
+  },
+  {
+    name: "Pixel Canvas",
+    link: "https://github.com/",
+    image: "",
+    emoji: "👾",
+    category: "game",
+    description: "A tiny 16x16 interactive drawing grid with color picker and instant PNG export.",
+    color: "violet",
+    size: ""
   }
 ];
 
 /* ---------- Rendering ---------- */
 const grid = document.getElementById('grid');
 const filtersEl = document.getElementById('filters');
-const categories = ["All", ...new Set(projects.map(p => p.category))];
-let activeCat = "All";
+const categories = ["all", ...new Set(projects.map(p => p.category))];
+let activeCat = "all";
 
-function renderFilters(){
+function renderFilters() {
   filtersEl.innerHTML = "";
   categories.forEach(cat => {
     const btn = document.createElement('button');
@@ -118,9 +128,9 @@ function renderFilters(){
   });
 }
 
-function renderGrid(){
+function renderGrid() {
   grid.innerHTML = "";
-  const list = projects.filter(p => activeCat === "All" || p.category === activeCat);
+  const list = projects.filter(p => activeCat === "all" || p.category === activeCat);
   list.forEach((p, i) => {
     const tile = document.createElement('a');
     tile.className = "tile" + (p.size ? " " + p.size : "");
@@ -156,7 +166,7 @@ const modalName = document.getElementById('modalName');
 const modalDesc = document.getElementById('modalDesc');
 const modalLink = document.getElementById('modalLink');
 
-function openModal(p){
+function openModal(p) {
   modalArt.style.background = COLORS[p.color] || COLORS.mist;
   if (p.image) {
     modalArt.style.backgroundImage = `url(${p.image})`;
@@ -173,7 +183,7 @@ function openModal(p){
   modalLink.href = p.link;
   overlay.classList.add('open');
 }
-function closeModal(){ overlay.classList.remove('open'); }
+function closeModal() { overlay.classList.remove('open'); }
 
 document.getElementById('closeModal').onclick = closeModal;
 document.getElementById('modalCancel').onclick = closeModal;
