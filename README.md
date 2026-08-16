@@ -22,7 +22,7 @@
 
 ## 🌐 Live Demo & Overview
 
-Try the application live: **[Small Projects Portfolio](https://metanef.github.io/projects/)**
+Try the application live: **[Small Projects Portfolio](https://metanef.github.io/small-projects/)**
 
 ### 🎨 Playful & Lightweight Web Showcase
 - **Zero Heavy Frameworks**: Built strictly with Vanilla HTML5, CSS3, and JavaScript for lightning-fast page loading and maximum performance.
@@ -70,7 +70,7 @@ No build tools or node modules required!
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/metanef/projects.git
+git clone https://github.com/metanef/small-projects.git
 
 # 2. Open index.html directly in your browser or serve locally
 npx serve .
