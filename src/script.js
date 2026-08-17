@@ -1,23 +1,8 @@
 /* =========================================================
-   PROJECT DATA — REPLACE WITH YOUR ACTUAL PROJECTS
-   Each object : 
-   - name        : project title
-   - link        : URL (e.g., GitHub Pages)
-   - image       : image URL (optional — leave "" for generated visual)
-   - emoji       : emoji used if no image
-   - category    : category for filter
-   - description : short description
-   - color       : tile background color (one of the tokens below)
-   - size        : "" | "wide" | "tall" | "big"  → tile dimensions
+   SMALL PROJECTS — APPLICATION LOGIC
    ========================================================= */
-const COLORS = {
-  coral: "#FF6452",
-  teal: "#17B8A6",
-  violet: "#7C5CFC",
-  sunflower: "#FFC53D",
-  mist: "#F4F2FB"
-};
 
+// Project Dataset
 const projects = [
   {
     name: "WristCam — Casio WQV-1",
@@ -25,9 +10,7 @@ const projects = [
     image: "",
     emoji: "⌚",
     category: "app",
-    description: "A retro web emulator reproducing the iconic 2000s Casio WQV-1 Wrist Camera smartwatch.",
-    color: "sunflower",
-    size: ""
+    description: "A retro web emulator reproducing the iconic 2000s Casio WQV-1 Wrist Camera smartwatch."
   },
   {
     name: "How I Met A Pingu",
@@ -35,9 +18,7 @@ const projects = [
     image: "",
     emoji: "🐧",
     category: "game",
-    description: "A whimsical story game following an icy romance on the floe.",
-    color: "teal",
-    size: ""
+    description: "A whimsical story game following an icy romance on the floe."
   },
   {
     name: "W4SD — Local Coop Hub",
@@ -45,9 +26,7 @@ const projects = [
     image: "",
     emoji: "🕹️",
     category: "app",
-    description: "A shared-keyboard local multiplayer hub for quick couch games with friends.",
-    color: "violet",
-    size: ""
+    description: "A shared-keyboard local multiplayer hub for quick couch games with friends."
   },
   {
     name: "Sparks & Sync",
@@ -55,9 +34,7 @@ const projects = [
     image: "",
     emoji: "🎴",
     category: "game",
-    description: "A playful conversation & decision card game for couples to bridge desires.",
-    color: "coral",
-    size: ""
+    description: "A playful conversation & decision card game for couples to bridge desires."
   },
   {
     name: "Annyeong — 15MinToLearnKorean",
@@ -65,9 +42,7 @@ const projects = [
     image: "",
     emoji: "🇰🇷",
     category: "app",
-    description: "A clean, bite-sized web app to master Hangul and Korean vocabulary in 15 minutes a day.",
-    color: "violet",
-    size: ""
+    description: "A clean, bite-sized web app to master Hangul and Korean vocabulary in 15 minutes a day."
   },
   {
     name: "Frame — Habit Tracker",
@@ -75,9 +50,7 @@ const projects = [
     image: "",
     emoji: "🖼️",
     category: "app",
-    description: "An offline-first personal journaling and daily habit tracking dashboard.",
-    color: "mist",
-    size: ""
+    description: "An offline-first personal journaling and daily habit tracking dashboard."
   },
   {
     name: "VaultGuard",
@@ -85,9 +58,7 @@ const projects = [
     image: "",
     emoji: "🔒",
     category: "tool",
-    description: "Analyze password strength, reuse, and security metrics for Bitwarden vaults locally.",
-    color: "teal",
-    size: ""
+    description: "Analyze password strength, reuse, and security metrics for Bitwarden vaults locally."
   },
   {
     name: "Poker Party",
@@ -95,9 +66,7 @@ const projects = [
     image: "",
     emoji: "♠️",
     category: "game",
-    description: "Fast-paced, browser-based poker room for casual games with friends.",
-    color: "coral",
-    size: ""
+    description: "Fast-paced, browser-based poker room for casual games with friends."
   },
   {
     name: "FreeL1fe",
@@ -105,37 +74,59 @@ const projects = [
     image: "",
     emoji: "🚀",
     category: "tool",
-    description: "Interactive financial independence calculator to project your path to early retirement.",
-    color: "sunflower",
-    size: ""
+    description: "Interactive financial independence calculator to project your path to early retirement."
   }
 ];
 
-/* ---------- Rendering ---------- */
+// State & DOM Elements
 const grid = document.getElementById('grid');
 const filtersEl = document.getElementById('filters');
 const categories = ["all", ...new Set(projects.map(p => p.category))];
 let activeCat = "all";
 
+// Modal Elements
+const overlay = document.getElementById('modalOverlay');
+const modalCard = document.getElementById('modalCard');
+const modalArt = document.getElementById('modalArt');
+const modalCat = document.getElementById('modalCat');
+const modalName = document.getElementById('modalName');
+const modalDesc = document.getElementById('modalDesc');
+const modalLink = document.getElementById('modalLink');
+const closeModalBtn = document.getElementById('closeModal');
+
+/* ---------- Filter Buttons Rendering ---------- */
 function renderFilters() {
+  if (!filtersEl) return;
   filtersEl.innerHTML = "";
+
   categories.forEach(cat => {
     const btn = document.createElement('button');
-    btn.className = "pill" + (cat === activeCat ? " active" : "");
+    btn.className = `pill${cat === activeCat ? " active" : ""}`;
     btn.textContent = cat;
-    btn.onclick = () => { activeCat = cat; renderFilters(); renderGrid(); };
+    btn.onclick = () => {
+      activeCat = cat;
+      renderFilters();
+      renderGrid();
+    };
     filtersEl.appendChild(btn);
   });
 }
 
+/* ---------- Project Grid Rendering ---------- */
 function renderGrid() {
+  if (!grid) return;
   grid.innerHTML = "";
-  const list = projects.filter(p => activeCat === "all" || p.category === activeCat);
-  list.forEach((p, i) => {
+
+  const filteredList = projects.filter(p => activeCat === "all" || p.category === activeCat);
+
+  filteredList.forEach(p => {
     const tile = document.createElement('a');
-    tile.className = "tile" + (p.size ? " " + p.size : "");
+    tile.className = "tile";
     tile.href = "#";
-    tile.onclick = (e) => { e.preventDefault(); openModal(p); };
+    tile.onclick = (e) => {
+      e.preventDefault();
+      openModal(p);
+    };
 
     const art = document.createElement('div');
     art.className = "art";
@@ -160,15 +151,10 @@ function renderGrid() {
   });
 }
 
-/* ---------- Modal ---------- */
-const overlay = document.getElementById('modalOverlay');
-const modalArt = document.getElementById('modalArt');
-const modalCat = document.getElementById('modalCat');
-const modalName = document.getElementById('modalName');
-const modalDesc = document.getElementById('modalDesc');
-const modalLink = document.getElementById('modalLink');
-
+/* ---------- Modal Logic ---------- */
 function openModal(p) {
+  if (!overlay) return;
+
   if (p.image) {
     modalArt.style.backgroundImage = `url(${p.image})`;
     modalArt.style.backgroundSize = "cover";
@@ -176,21 +162,24 @@ function openModal(p) {
   } else {
     modalArt.style.backgroundImage = "none";
   }
+
   modalArt.innerHTML = `<span class="icon-emoji">${p.emoji}</span>`;
   modalCat.textContent = p.category;
   modalName.textContent = p.name;
   modalDesc.textContent = p.description;
   modalLink.href = p.link;
+
   overlay.classList.add('open');
 }
-function closeModal() { overlay.classList.remove('open'); }
 
-document.getElementById('closeModal').onclick = closeModal;
-overlay.onclick = (e) => { if (e.target === overlay) closeModal(); };
+function closeModal() {
+  if (overlay) overlay.classList.remove('open');
+}
+
+// Modal Event Listeners
+if (closeModalBtn) closeModalBtn.onclick = closeModal;
+if (overlay) overlay.onclick = (e) => { if (e.target === overlay) closeModal(); };
 document.addEventListener('keydown', (e) => { if (e.key === "Escape") closeModal(); });
-
-renderFilters();
-renderGrid();
 
 /* ---------- Smooth Scroll (Lenis) ---------- */
 let lenisInstance = null;
@@ -218,3 +207,7 @@ document.querySelectorAll('a[href="#top"]').forEach(anchor => {
     }
   });
 });
+
+/* ---------- App Initialization ---------- */
+renderFilters();
+renderGrid();
