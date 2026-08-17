@@ -33,8 +33,10 @@ html, body {
 
 body {
   background-color: #e8ecf2;
-  background-image: radial-gradient(rgba(163, 177, 198, 0.35) 1.5px, transparent 1.5px);
-  background-size: 28px 28px;
+  background-image: 
+    radial-gradient(rgba(163, 177, 198, 0.35) 1.5px, transparent 1.5px),
+    linear-gradient(135deg, #ffffff 0%, #e8ecf2 45%, #d1dae8 100%);
+  background-size: 28px 28px, 100% 100%;
   background-attachment: fixed;
   color: var(--ink);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
