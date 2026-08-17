@@ -32,7 +32,10 @@ html, body {
 }
 
 body {
-  background: var(--bg);
+  background-color: #e8ecf2;
+  background-image: radial-gradient(rgba(163, 177, 198, 0.35) 1.5px, transparent 1.5px);
+  background-size: 28px 28px;
+  background-attachment: fixed;
   color: var(--ink);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   overflow-x: hidden;
