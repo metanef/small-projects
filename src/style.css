@@ -39,19 +39,6 @@ body {
   min-height: 100vh;
 }
 
-/* ---------- Decorative background glow ---------- */
-.blob {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(80px);
-  opacity: .18;
-  z-index: 0;
-  pointer-events: none;
-}
-.blob1 { width: 380px; height: 380px; background: #818cf8; top: -140px; left: -100px; }
-.blob2 { width: 320px; height: 320px; background: #c084fc; top: 100px; right: -120px; }
-.blob3 { width: 300px; height: 300px; background: #38bdf8; bottom: 0px; left: 35%; }
-
 /* ---------- Header ---------- */
 header {
   position: relative;
