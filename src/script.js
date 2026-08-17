@@ -135,7 +135,6 @@ function renderGrid() {
     const tile = document.createElement('a');
     tile.className = "tile" + (p.size ? " " + p.size : "");
     tile.href = "#";
-    tile.style.background = COLORS[p.color] || COLORS.mist;
     tile.onclick = (e) => { e.preventDefault(); openModal(p); };
 
     const art = document.createElement('div');
@@ -167,7 +166,6 @@ const modalDesc = document.getElementById('modalDesc');
 const modalLink = document.getElementById('modalLink');
 
 function openModal(p) {
-  modalArt.style.background = COLORS[p.color] || COLORS.mist;
   if (p.image) {
     modalArt.style.backgroundImage = `url(${p.image})`;
     modalArt.style.backgroundSize = "cover";
