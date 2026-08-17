@@ -191,16 +191,28 @@ renderFilters();
 renderGrid();
 
 /* ---------- Smooth Scroll (Lenis) ---------- */
+let lenisInstance = null;
 if (typeof Lenis !== 'undefined') {
-  const lenis = new Lenis({
+  lenisInstance = new Lenis({
     duration: 0.8,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     smoothWheel: true,
   });
 
   function raf(time) {
-    lenis.raf(time);
+    lenisInstance.raf(time);
     requestAnimationFrame(raf);
   }
   requestAnimationFrame(raf);
 }
+
+document.querySelectorAll('a[href="#top"]').forEach(anchor => {
+  anchor.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (lenisInstance) {
+      lenisInstance.scrollTo(0, { duration: 0.8 });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  });
+});
