@@ -1,0 +1,10 @@
+List of my projects:
+1. WristCam — Casio WQV-1 [app]
+2. How I Met A Pingu [game]
+3. W4SD — Local Coop Hub [app]
+4. Sparks & Sync [game]
+5. Annyeong — 15MinToLearnKorean [app]
+6. Frame — Habit Tracker [app]
+7. VaultGuard [tool]
+8. Poker Party [game]
+9. FreeL1fe [tool]
