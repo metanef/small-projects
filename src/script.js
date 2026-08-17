@@ -2,87 +2,14 @@
    SMALL PROJECTS — APPLICATION LOGIC
    ========================================================= */
 
-// Project Dataset
-const projects = [
-  {
-    name: "WristCam — Casio WQV-1",
-    link: "https://metanef.github.io/casio-wqv-1/",
-    image: "",
-    emoji: "⌚",
-    category: "app",
-    description: "A retro web emulator reproducing the iconic 2000s Casio WQV-1 Wrist Camera smartwatch."
-  },
-  {
-    name: "How I Met A Pingu",
-    link: "https://metanef.github.io/pingu/",
-    image: "",
-    emoji: "🐧",
-    category: "game",
-    description: "A whimsical story game following an icy romance on the floe."
-  },
-  {
-    name: "W4SD — Local Coop Hub",
-    link: "https://metanef.github.io/coop-game/",
-    image: "",
-    emoji: "🕹️",
-    category: "app",
-    description: "A shared-keyboard local multiplayer hub for quick couch games with friends."
-  },
-  {
-    name: "Sparks & Sync",
-    link: "https://metanef.github.io/mismatched-libido/",
-    image: "",
-    emoji: "🎴",
-    category: "game",
-    description: "A playful conversation & decision card game for couples to bridge desires."
-  },
-  {
-    name: "Annyeong — 15MinToLearnKorean",
-    link: "https://metanef.github.io/annyeong-15mintolearnkorean/",
-    image: "",
-    emoji: "🇰🇷",
-    category: "app",
-    description: "A clean, bite-sized web app to master Hangul and Korean vocabulary in 15 minutes a day."
-  },
-  {
-    name: "Frame — Habit Tracker",
-    link: "https://metanef.github.io/frame/",
-    image: "",
-    emoji: "🖼️",
-    category: "app",
-    description: "An offline-first personal journaling and daily habit tracking dashboard."
-  },
-  {
-    name: "VaultGuard",
-    link: "https://metanef.github.io/bitwarden-vault-audit/",
-    image: "",
-    emoji: "🔒",
-    category: "tool",
-    description: "Analyze password strength, reuse, and security metrics for Bitwarden vaults locally."
-  },
-  {
-    name: "Poker Party",
-    link: "https://metanef.github.io/poker-party/",
-    image: "",
-    emoji: "♠️",
-    category: "game",
-    description: "Fast-paced, browser-based poker room for casual games with friends."
-  },
-  {
-    name: "FreeL1fe",
-    link: "https://metanef.github.io/freel1fe/",
-    image: "",
-    emoji: "🚀",
-    category: "tool",
-    description: "Interactive financial independence calculator to project your path to early retirement."
-  }
-];
+// State & Data
+let projects = [];
+let categories = ["all"];
+let activeCat = "all";
 
-// State & DOM Elements
+// DOM Elements
 const grid = document.getElementById('grid');
 const filtersEl = document.getElementById('filters');
-const categories = ["all", ...new Set(projects.map(p => p.category))];
-let activeCat = "all";
 
 // Modal Elements
 const overlay = document.getElementById('modalOverlay');
@@ -93,6 +20,19 @@ const modalName = document.getElementById('modalName');
 const modalDesc = document.getElementById('modalDesc');
 const modalLink = document.getElementById('modalLink');
 const closeModalBtn = document.getElementById('closeModal');
+
+/* ---------- Data Fetching ---------- */
+async function loadProjects() {
+  try {
+    const res = await fetch('src/projects.json');
+    projects = await res.json();
+    categories = ["all", ...new Set(projects.map(p => p.category))];
+    renderFilters();
+    renderGrid();
+  } catch (err) {
+    console.error("Failed to load projects dataset:", err);
+  }
+}
 
 /* ---------- Filter Buttons Rendering ---------- */
 function renderFilters() {
@@ -209,5 +149,4 @@ document.querySelectorAll('a[href="#top"]').forEach(anchor => {
 });
 
 /* ---------- App Initialization ---------- */
-renderFilters();
-renderGrid();
+loadProjects();

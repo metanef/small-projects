@@ -85,8 +85,9 @@ Try the application live: **[Small Projects Portfolio](https://metanef.github.io
 ├── list.txt             # Reference list of the 9 featured projects & live links
 └── src/
     ├── logo.svg         # Carved Neumorphic SP Monogram SVG logo & favicon
+    ├── projects.json    # Project dataset (names, URLs, categories, descriptions, emojis)
     ├── style.css        # Complete Neumorphic design system, animations & responsive grid
-    └── script.js        # Project dataset with live links, filtering logic & modal handlers
+    └── script.js        # Dynamic dataset fetching, filtering logic & modal handlers
 ```
 
 ---
