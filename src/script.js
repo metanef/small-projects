@@ -21,7 +21,7 @@ const COLORS = {
 const projects = [
   {
     name: "WristCam — Casio WQV-1",
-    link: "https://github.com/",
+    link: "https://metanef.github.io/casio-wqv-1/",
     image: "",
     emoji: "⌚",
     category: "app",
@@ -31,7 +31,7 @@ const projects = [
   },
   {
     name: "How I Met A Pingu",
-    link: "https://github.com/",
+    link: "https://metanef.github.io/pingu/",
     image: "",
     emoji: "🐧",
     category: "game",
@@ -41,7 +41,7 @@ const projects = [
   },
   {
     name: "W4SD — Local Coop Hub",
-    link: "https://github.com/",
+    link: "https://metanef.github.io/coop-game/",
     image: "",
     emoji: "🕹️",
     category: "app",
@@ -51,7 +51,7 @@ const projects = [
   },
   {
     name: "Sparks & Sync",
-    link: "https://github.com/",
+    link: "https://metanef.github.io/mismatched-libido/",
     image: "",
     emoji: "🎴",
     category: "game",
@@ -61,7 +61,7 @@ const projects = [
   },
   {
     name: "Annyeong — 15MinToLearnKorean",
-    link: "https://github.com/",
+    link: "https://metanef.github.io/annyeong-15mintolearnkorean/",
     image: "",
     emoji: "🇰🇷",
     category: "app",
@@ -71,7 +71,7 @@ const projects = [
   },
   {
     name: "Frame — Habit Tracker",
-    link: "https://github.com/",
+    link: "https://metanef.github.io/frame/",
     image: "",
     emoji: "🖼️",
     category: "app",
@@ -81,7 +81,7 @@ const projects = [
   },
   {
     name: "VaultGuard",
-    link: "https://github.com/",
+    link: "https://metanef.github.io/bitwarden-vault-audit/",
     image: "",
     emoji: "🔒",
     category: "tool",
@@ -91,7 +91,7 @@ const projects = [
   },
   {
     name: "Poker Party",
-    link: "https://github.com/",
+    link: "https://metanef.github.io/poker-party/",
     image: "",
     emoji: "♠️",
     category: "game",
@@ -101,7 +101,7 @@ const projects = [
   },
   {
     name: "FreeL1fe",
-    link: "https://github.com/",
+    link: "https://metanef.github.io/freel1fe/",
     image: "",
     emoji: "🚀",
     category: "tool",

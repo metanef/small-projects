@@ -1,10 +1,10 @@
 List of my projects:
-1. WristCam — Casio WQV-1 [app]
-2. How I Met A Pingu [game]
-3. W4SD — Local Coop Hub [app]
-4. Sparks & Sync [game]
-5. Annyeong — 15MinToLearnKorean [app]
-6. Frame — Habit Tracker [app]
-7. VaultGuard [tool]
-8. Poker Party [game]
-9. FreeL1fe [tool]
+1. WristCam — Casio WQV-1 [app] : https://metanef.github.io/casio-wqv-1/
+2. How I Met A Pingu [game] ; https://metanef.github.io/pingu/
+3. W4SD — Local Coop Hub [app] : https://metanef.github.io/coop-game/
+4. Sparks & Sync [game] : https://metanef.github.io/mismatched-libido/
+5. Annyeong — 15MinToLearnKorean [app] : https://metanef.github.io/annyeong-15mintolearnkorean/
+6. Frame — Habit Tracker [app] : https://metanef.github.io/frame/
+7. VaultGuard [tool] : https://metanef.github.io/bitwarden-vault-audit/
+8. Poker Party [game] : https://metanef.github.io/poker-party/
+9. FreeL1fe [tool] : https://metanef.github.io/freel1fe/
