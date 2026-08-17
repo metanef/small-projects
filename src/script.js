@@ -143,16 +143,19 @@ function renderGrid() {
       art.style.backgroundImage = `url(${p.image})`;
       art.style.backgroundSize = "cover";
       art.style.backgroundPosition = "center";
-    } else {
-      art.innerHTML = `<span class="icon-emoji">${p.emoji}</span>`;
     }
 
     const caption = document.createElement('div');
     caption.className = "caption";
     caption.innerHTML = `<span class="cat-tag">${p.category}</span><span class="name">${p.name}</span>`;
 
+    const emoji = document.createElement('span');
+    emoji.className = "icon-emoji";
+    emoji.textContent = p.emoji;
+
     tile.appendChild(art);
     tile.appendChild(caption);
+    tile.appendChild(emoji);
     grid.appendChild(tile);
   });
 }
@@ -170,11 +173,10 @@ function openModal(p) {
     modalArt.style.backgroundImage = `url(${p.image})`;
     modalArt.style.backgroundSize = "cover";
     modalArt.style.backgroundPosition = "center";
-    modalArt.innerHTML = "";
   } else {
     modalArt.style.backgroundImage = "none";
-    modalArt.innerHTML = p.emoji;
   }
+  modalArt.innerHTML = `<span class="icon-emoji">${p.emoji}</span>`;
   modalCat.textContent = p.category;
   modalName.textContent = p.name;
   modalDesc.textContent = p.description;
