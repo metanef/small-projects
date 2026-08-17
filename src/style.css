@@ -222,11 +222,6 @@ main {
 .tile .icon-emoji {
   font-size: 3.2rem;
   filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.08));
-  transition: transform 0.2s ease;
-}
-
-.tile:hover .icon-emoji {
-  transform: scale(1.08);
 }
 
 /* Caption Area */
