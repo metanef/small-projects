@@ -4,35 +4,53 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Lab — Web & Visual Creations</title>
+  <meta name="description"
+    content="Small Projects — A tactile Neumorphic (Soft UI) portfolio showcasing web experiments, tools, games, and mini-apps.">
+
+  <title>Small Projects ✦ Web Experiments & Soft UI Portfolio</title>
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
     rel="stylesheet">
+
+  <!-- Favicon & Stylesheet -->
   <link rel="icon" type="image/svg+xml" href="src/logo.svg">
   <link rel="stylesheet" href="src/style.css">
+
+  <!-- Lenis Smooth Scroll & Application Script -->
   <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
   <script src="src/script.js" defer></script>
 </head>
 
 <body>
 
+  <!-- Header -->
   <header id="top">
     <span class="eyebrow">✦ portfolio</span>
-    <h1><span class="accent">small projects<svg viewBox="0 0 200 14" preserveAspectRatio="none">
+    <h1>
+      <span class="accent">small projects
+        <svg viewBox="0 0 200 14" preserveAspectRatio="none">
           <path d="M2 10 Q 50 2, 100 8 T 198 6" stroke="#4f46e5" stroke-width="4" fill="none" stroke-linecap="round" />
-        </svg></span></h1>
+        </svg>
+      </span>
+    </h1>
     <p class="sub">A collection of web experiments, tools, and visuals<br>Click a tile to explore</p>
   </header>
 
-  <div class="filters" id="filters"></div>
+  <!-- Category Filters -->
+  <nav class="filters" id="filters" aria-label="Project Category Filters"></nav>
 
+  <!-- Main Grid -->
   <main>
-    <div class="grid" id="grid"></div>
+    <section class="grid" id="grid" aria-label="Project Showcase Grid"></section>
   </main>
 
+  <!-- Footer -->
   <footer>
-    <a href="#top" class="footer-logo-link" id="footerLogoLink" title="Back to top">
+    <a href="#top" class="footer-logo-link" id="footerLogoLink" title="Back to top" aria-label="Back to top">
       <img src="src/logo.svg" alt="Small Projects Logo" class="footer-logo">
     </a>
     <div class="links">
@@ -42,9 +60,10 @@
     <p>Made with fun and too many open tabs - © 2026 metanef</p>
   </footer>
 
-  <div class="modal-overlay" id="modalOverlay">
-    <div class="modal" id="modalCard" style="position:relative;">
-      <div class="close-x" id="closeModal">✕</div>
+  <!-- Project Detail Modal -->
+  <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true">
+    <div class="modal" id="modalCard">
+      <button class="close-x" id="closeModal" aria-label="Close modal">✕</button>
       <div class="art" id="modalArt"></div>
       <div class="body">
         <span class="cat-tag" id="modalCat"></span>
