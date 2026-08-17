@@ -7,7 +7,7 @@
   **A vibrant, interactive, and tactile showcase of web experiments, tools, games, and mini-apps built with a strict Neumorphism (Soft UI) design system.**
 
   [![Live Demo](https://img.shields.io/badge/Live_Demo-play_online-10b981?style=for-the-badge&logo=githubpages&logoColor=white)](https://metanef.github.io/small-projects/)
-  [![v2.0](https://img.shields.io/badge/VERSION-2.0_STABLE-4f46e5?style=for-the-badge)](#)
+  [![v2.1](https://img.shields.io/badge/VERSION-2.1_STABLE-4f46e5?style=for-the-badge)](#)
 
   <br />
 
@@ -29,10 +29,11 @@ Try the application live: **[Small Projects Portfolio](https://metanef.github.io
 ### 🎨 Neumorphic (Soft UI) Web Showcase
 - **Zero Heavy Frameworks**: Built strictly with Vanilla HTML5, CSS3, and JavaScript for lightning-fast page loading and maximum performance.
 - **Strict Neumorphism Design System**: Tactile dual-shadow extrusion physics (`8px 8px 16px`), inset sunken art viewports, smooth 20px–28px rounded corners, and zero hard outline borders.
-- **Custom Engraved SP Logo & Favicon**: Custom vector monogram (`src/logo.svg`) with carved bevel inset highlights, integrated as high-DPI SVG favicon.
+- **Custom Engraved SP Logo & Favicon**: Custom vector monogram (`src/logo.svg`) with carved bevel inset highlights, integrated as high-DPI SVG favicon and footer back-to-top button.
 - **Composite Background Lighting**: Combined micro-grid dot matrix stacked over an enhanced 135° directional light source gradient for high-end visual depth.
 - **Responsive 3×3 Grid**: Clean 3-column fixed layout (`max-width: 1320px`) displaying 9 handcrafted mini-projects.
-- **Ultra-Smooth Scrolling**: Integrated Lenis.js (`duration: 0.8s`) for fluid wheel interaction.
+- **Ultra-Smooth Scrolling**: Integrated Lenis.js (`duration: 0.8s`) for fluid wheel interaction and smooth anchor scrolling.
+- **External JSON Dataset**: Asynchronous fetching of `src/projects.json` for decoupled data management.
 
 ---
 
@@ -54,9 +55,9 @@ Try the application live: **[Small Projects Portfolio](https://metanef.github.io
 
 ## ✨ Features
 
-- **🧩 Balanced 3×3 Project Grid**: Displays 9 distinct project cards with custom emojis, category tags, and dual-shadow relief.
+- **🧩 Balanced 3×3 Project Grid**: Displays 9 distinct project cards with custom emojis in the bottom-right corner, category tags, and dual-shadow relief.
 - **🏷️ Standardized Categories**: Filter projects seamlessly between `all`, `game`, `tool`, and `app` with tactile inset/raised category pills.
-- **🔍 Interactive Detail Modal**: Click any project tile to launch a raised neumorphic modal card with an inset preview frame, bottom-right close button, and backdrop blur.
+- **🔍 Spring-Pop Modal Dialog**: Click any project tile to launch a raised neumorphic modal card featuring smooth cubic-bezier scaling (`transform: scale(0.92)` ➔ `scale(1)`), backdrop blur (`blur(12px)`), and a circular close button.
 - **📜 Lenis Smooth Scroll**: Silky-smooth scrolling experience across desktop and mobile devices.
 - **🎨 Neumorphic Design Tokens**: Custom CSS variables for surface tones (`#e8ecf2`), raised shadows, inset shadows, and high-contrast WCAG typography (`#1e293b`).
 - **📱 Fully Responsive**: Fluid grid adaptation across desktop, tablet, and mobile screens.
@@ -67,9 +68,10 @@ Try the application live: **[Small Projects Portfolio](https://metanef.github.io
 
 | Technology | Usage |
 | :--- | :--- |
-| **HTML5** | Semantic structure, accessibility markup, SVG favicon, and clean layout |
-| **CSS3 (Vanilla)** | Neumorphism dual-shadow tokens (`box-shadow`), CSS Grid, Flexbox, custom background gradients |
-| **JavaScript (ES6+)** | Dynamic project dataset rendering, category filtering, modal state management |
+| **HTML5** | Semantic structure, accessibility markup (WCAG), SVG favicon, and clean layout |
+| **CSS3 (Vanilla)** | Neumorphism dual-shadow tokens (`box-shadow`), CSS Grid, Flexbox, custom background gradients, cubic-bezier modal transitions |
+| **JavaScript (ES6+)** | Asynchronous JSON fetching (`fetch`), dynamic project dataset rendering, category filtering, modal state management |
+| **JSON** | Decoupled project dataset (`src/projects.json`) |
 | **Lenis.js** | Modern smooth scroll engine |
 | **Google Fonts** | *Fredoka* (friendly headings), *Space Grotesk* (tech UI tags), *Inter* (body text) |
 
@@ -108,19 +110,19 @@ npx serve .
 
 ## 🗺️ Roadmap & Progress
 
-### ✅ Completed (v2.0 STABLE)
-- [x] **Live Project Link Mapping**: Integrated active GitHub Pages demo URLs for all 9 projects in `list.txt` and `src/script.js`.
-- [x] **Custom Engraved Neumorphic Logo & Favicon**: Sculpted SP monogram (`src/logo.svg`) with carved bevel inset depth, configured as website favicon in `index.html`.
-- [x] **Neumorphism (Soft UI) Overhaul**: Full UI refactor with dual-shadow tokens (`--shadow-raised` & `--shadow-inset`), soft surface `#e8ecf2`, and removal of hard black borders.
+### ✅ Completed (v2.1 STABLE)
+- [x] **Externalized JSON Dataset**: Extracted project entries into `src/projects.json` for asynchronous `fetch()` loading.
+- [x] **Smooth Elastic Modal Pop**: Implemented cubic-bezier spring scaling and 12px backdrop blur transition for modal opening & closing.
+- [x] **Bottom-Right Tile Emojis**: Positioned tile emojis to the bottom-right corner of global cards to accommodate future screenshot placeholders.
+- [x] **Synchronized Hover Physics**: Fixed tile hover transforms so card elements elevate in total visual sync with the card.
+- [x] **Codebase Polish & Refactoring**: Cleaned and formatted `index.html` (SEO, WCAG accessibility), `style.css` (organized design tokens), and `script.js` (ES6 guards).
+- [x] **Live Project Link Mapping**: Integrated active GitHub Pages demo URLs for all 9 projects.
+- [x] **Custom Engraved Neumorphic Logo & Favicon**: Sculpted SP monogram (`src/logo.svg`) with carved bevel inset depth, configured as favicon and footer back-to-top button.
+- [x] **Neumorphism (Soft UI) Overhaul**: Full UI refactor with dual-shadow tokens (`--shadow-raised` & `--shadow-inset`) and soft surface `#e8ecf2`.
 - [x] **Composite Background System**: Micro-grid dot matrix stacked over an enhanced 135° directional light source gradient.
-- [x] **Pop-up UI Polish**: Repositioned close button to the bottom-right of the modal card and streamlined action buttons.
-- [x] **Solidary Card Icons**: Fixed icon hover scaling so tile art remains solidary with card elevation.
-- [x] **Modular Architecture**: Centralized `src/` directory with `logo.svg`, `style.css`, and `script.js`.
-- [x] **3×3 Balanced Grid Layout**: Uniform 9-tile responsive grid without irregular sizing (`max-width: 1320px`).
-- [x] **Category Taxonomy Normalization**: Standardized categories exclusively to `game`, `tool`, and `app`.
-- [x] **Lenis Smooth Scroll**: Integrated `Lenis` (`duration: 0.8s`) for enhanced UX.
+- [x] **Lenis Smooth Scroll**: Integrated `Lenis` (`duration: 0.8s`) for enhanced wheel and anchor navigation.
 - [x] **GitHub Pages CI/CD**: Workflow configured in `.github/workflows/static.yml`.
 
-### 🔄 Future Ideas (v2.1+)
-- [ ] **Project Screenshots**: Add optional high-resolution previews for modal cards.
+### 🔄 Future Ideas (v2.2+)
+- [ ] **Project Screenshots**: Add optional high-resolution previews for modal cards and card headers.
 - [ ] **Dark Neumorphism Toggle**: Optional dark mode color palette.
