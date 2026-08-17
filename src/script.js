@@ -184,7 +184,6 @@ function openModal(p) {
 function closeModal() { overlay.classList.remove('open'); }
 
 document.getElementById('closeModal').onclick = closeModal;
-document.getElementById('modalCancel').onclick = closeModal;
 overlay.onclick = (e) => { if (e.target === overlay) closeModal(); };
 document.addEventListener('keydown', (e) => { if (e.key === "Escape") closeModal(); });
 

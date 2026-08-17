@@ -388,8 +388,8 @@ main {
 /* Circular Close Button */
 .close-x {
   position: absolute;
-  top: 18px;
-  right: 18px;
+  bottom: 24px;
+  right: 24px;
   width: 38px;
   height: 38px;
   border-radius: 50%;
