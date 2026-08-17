@@ -6,8 +6,8 @@
 
   **A vibrant, interactive, and tactile showcase of web experiments, tools, games, and mini-apps built with a strict Neumorphism (Soft UI) design system.**
 
-  [![Live Demo](https://img.shields.io/badge/Live_Demo-small_projects-10b981?style=for-the-badge&logo=githubpages&logoColor=white)](https://metanef.github.io/small-projects/)
-  [![v1.5](https://img.shields.io/badge/VERSION-1.5_STABLE-4f46e5?style=for-the-badge)](#)
+  [![Live Demo](https://img.shields.io/badge/Live_Demo-play_online-10b981?style=for-the-badge&logo=githubpages&logoColor=white)](https://metanef.github.io/small-projects/)
+  [![v2.0](https://img.shields.io/badge/VERSION-2.0_STABLE-4f46e5?style=for-the-badge)](#)
 
   <br />
 
@@ -29,7 +29,8 @@ Try the application live: **[Small Projects Portfolio](https://metanef.github.io
 ### 🎨 Neumorphic (Soft UI) Web Showcase
 - **Zero Heavy Frameworks**: Built strictly with Vanilla HTML5, CSS3, and JavaScript for lightning-fast page loading and maximum performance.
 - **Strict Neumorphism Design System**: Tactile dual-shadow extrusion physics (`8px 8px 16px`), inset sunken art viewports, smooth 20px–28px rounded corners, and zero hard outline borders.
-- **Composite Background Lighting**: Combined micro-grid dot matrix stacked over a 135° directional light source gradient for high-end visual depth.
+- **Custom Engraved SP Logo & Favicon**: Custom vector monogram (`src/logo.svg`) with carved bevel inset highlights, integrated as high-DPI SVG favicon.
+- **Composite Background Lighting**: Combined micro-grid dot matrix stacked over an enhanced 135° directional light source gradient for high-end visual depth.
 - **Responsive 3×3 Grid**: Clean 3-column fixed layout (`max-width: 1320px`) displaying 9 handcrafted mini-projects.
 - **Ultra-Smooth Scrolling**: Integrated Lenis.js (`duration: 0.8s`) for fluid wheel interaction.
 
@@ -37,17 +38,17 @@ Try the application live: **[Small Projects Portfolio](https://metanef.github.io
 
 ## 📦 Featured Projects (3×3 Showcase)
 
-| # | Project Name | Category | Description |
-| :-: | :--- | :-: | :--- |
-| ⌚ | **WristCam — Casio WQV-1** | `app` | Retro web emulator reproducing the iconic 2000s Casio WQV-1 Wrist Camera smartwatch. |
-| 🐧 | **How I Met A Pingu** | `game` | Whimsical story game following an icy romance on the floe. |
-| 🕹️ | **W4SD — Local Coop Hub** | `app` | Shared-keyboard local multiplayer hub for quick couch games with friends. |
-| 🎴 | **Sparks & Sync** | `game` | Playful conversation & decision card game for couples to bridge desires. |
-| 🇰🇷 | **Annyeong — 15MinToLearnKorean** | `app` | Clean, bite-sized web app to master Hangul and Korean vocabulary in 15 mins a day. |
-| 🖼️ | **Frame — Habit Tracker** | `app` | Offline-first personal journaling and daily habit tracking dashboard. |
-| 🔒 | **VaultGuard** | `tool` | Analyze password strength, reuse, and security metrics for Bitwarden vaults locally. |
-| ♠️ | **Poker Party** | `game` | Fast-paced, browser-based poker room for casual games with friends. |
-| 🚀 | **FreeL1fe** | `tool` | Interactive financial independence calculator to project your path to early retirement. |
+| # | Project Name | Category | Live Demo URL | Description |
+| :-: | :--- | :-: | :--- | :--- |
+| ⌚ | **WristCam — Casio WQV-1** | `app` | [Demo](https://metanef.github.io/casio-wqv-1/) | Retro web emulator reproducing the iconic 2000s Casio WQV-1 Wrist Camera smartwatch. |
+| 🐧 | **How I Met A Pingu** | `game` | [Demo](https://metanef.github.io/pingu/) | Whimsical story game following an icy romance on the floe. |
+| 🕹️ | **W4SD — Local Coop Hub** | `app` | [Demo](https://metanef.github.io/coop-game/) | Shared-keyboard local multiplayer hub for quick couch games with friends. |
+| 🎴 | **Sparks & Sync** | `game` | [Demo](https://metanef.github.io/mismatched-libido/) | Playful conversation & decision card game for couples to bridge desires. |
+| 🇰🇷 | **Annyeong — 15MinToLearnKorean** | `app` | [Demo](https://metanef.github.io/annyeong-15mintolearnkorean/) | Clean, bite-sized web app to master Hangul and Korean vocabulary in 15 mins a day. |
+| 🖼️ | **Frame — Habit Tracker** | `app` | [Demo](https://metanef.github.io/frame/) | Offline-first personal journaling and daily habit tracking dashboard. |
+| 🔒 | **VaultGuard** | `tool` | [Demo](https://metanef.github.io/bitwarden-vault-audit/) | Analyze password strength, reuse, and security metrics for Bitwarden vaults locally. |
+| ♠️ | **Poker Party** | `game` | [Demo](https://metanef.github.io/poker-party/) | Fast-paced, browser-based poker room for casual games with friends. |
+| 🚀 | **FreeL1fe** | `tool` | [Demo](https://metanef.github.io/freel1fe/) | Interactive financial independence calculator to project your path to early retirement. |
 
 ---
 
@@ -66,7 +67,7 @@ Try the application live: **[Small Projects Portfolio](https://metanef.github.io
 
 | Technology | Usage |
 | :--- | :--- |
-| **HTML5** | Semantic structure, accessibility markup, and clean layout |
+| **HTML5** | Semantic structure, accessibility markup, SVG favicon, and clean layout |
 | **CSS3 (Vanilla)** | Neumorphism dual-shadow tokens (`box-shadow`), CSS Grid, Flexbox, custom background gradients |
 | **JavaScript (ES6+)** | Dynamic project dataset rendering, category filtering, modal state management |
 | **Lenis.js** | Modern smooth scroll engine |
@@ -80,12 +81,12 @@ Try the application live: **[Small Projects Portfolio](https://metanef.github.io
 ├── .github/
 │   └── workflows/
 │       └── static.yml  # GitHub Pages deployment workflow
-├── index.html           # Main HTML structure & Lenis initialization
-├── list.txt             # Reference list of the 9 featured projects
+├── index.html           # Main HTML structure, Lenis initialization & SVG favicon
+├── list.txt             # Reference list of the 9 featured projects & live links
 └── src/
-    ├── logo.svg         # SP Monogram SVG logo badge
+    ├── logo.svg         # Carved Neumorphic SP Monogram SVG logo & favicon
     ├── style.css        # Complete Neumorphic design system, animations & responsive grid
-    └── script.js        # Project dataset, filtering logic & modal handlers
+    └── script.js        # Project dataset with live links, filtering logic & modal handlers
 ```
 
 ---
@@ -106,7 +107,9 @@ npx serve .
 
 ## 🗺️ Roadmap & Progress
 
-### ✅ Completed (v1.5)
+### ✅ Completed (v2.0 STABLE)
+- [x] **Live Project Link Mapping**: Integrated active GitHub Pages demo URLs for all 9 projects in `list.txt` and `src/script.js`.
+- [x] **Custom Engraved Neumorphic Logo & Favicon**: Sculpted SP monogram (`src/logo.svg`) with carved bevel inset depth, configured as website favicon in `index.html`.
 - [x] **Neumorphism (Soft UI) Overhaul**: Full UI refactor with dual-shadow tokens (`--shadow-raised` & `--shadow-inset`), soft surface `#e8ecf2`, and removal of hard black borders.
 - [x] **Composite Background System**: Micro-grid dot matrix stacked over an enhanced 135° directional light source gradient.
 - [x] **Pop-up UI Polish**: Repositioned close button to the bottom-right of the modal card and streamlined action buttons.
@@ -117,6 +120,6 @@ npx serve .
 - [x] **Lenis Smooth Scroll**: Integrated `Lenis` (`duration: 0.8s`) for enhanced UX.
 - [x] **GitHub Pages CI/CD**: Workflow configured in `.github/workflows/static.yml`.
 
-### 🔄 Next Steps
-- [ ] **Remote Project Links**: Replace dummy GitHub URLs (`link`) in `src/script.js` with active repository / live demo links.
+### 🔄 Future Ideas (v2.1+)
 - [ ] **Project Screenshots**: Add optional high-resolution previews for modal cards.
+- [ ] **Dark Neumorphism Toggle**: Optional dark mode color palette.
