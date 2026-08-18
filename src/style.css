@@ -113,7 +113,7 @@ header h1 span svg path {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 14px;
+  gap: 30px;
   margin-bottom: 24px;
 }
 
@@ -128,7 +128,8 @@ header h1 span svg path {
   position: relative;
   display: inline-block;
   width: var(--container-width);
-  height: 1.85em;
+  height: 33px;
+  box-sizing: border-box;
   user-select: none;
 }
 
@@ -151,7 +152,7 @@ header h1 span svg path {
   background-color: var(--bg);
   box-shadow: var(--shadow-inset-sm);
   transition: background-color var(--transition-duration), box-shadow var(--transition-duration);
-  border-radius: 8px;
+  border-radius: var(--radius-btn);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -198,11 +199,11 @@ header h1 span svg path {
 .slider::before {
   position: absolute;
   content: "";
-  height: 1.3em;
+  top: var(--offset);
+  bottom: var(--offset);
   width: var(--width);
   border-radius: 5px;
   left: var(--offset);
-  bottom: var(--offset);
   background-color: var(--accent);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
   transition: transform var(--transition-duration) ease-out, background-color var(--transition-duration) ease-out;
@@ -245,7 +246,9 @@ header {
   color: var(--accent);
   background: var(--bg);
   box-shadow: var(--shadow-inset-sm);
-  padding: 8px 18px;
+  height: 33px;
+  box-sizing: border-box;
+  padding: 0 18px;
   border-radius: var(--radius-btn);
   margin-bottom: 24px;
 }
@@ -648,7 +651,7 @@ footer {
 
 footer .links {
   display: flex;
-  gap: 20px;
+  gap: 30px;
   justify-content: center;
   margin-bottom: 24px;
   flex-wrap: wrap;
