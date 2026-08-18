@@ -7,7 +7,7 @@
   **A vibrant, interactive, and tactile showcase of web experiments, tools, games, and mini-apps built with a strict Neumorphism (Soft UI) design system.**
 
   [![Live Demo](https://img.shields.io/badge/Live_Demo-play_online-10b981?style=for-the-badge&logo=githubpages&logoColor=white)](https://metanef.github.io/small-projects/)
-  [![v2.1](https://img.shields.io/badge/VERSION-2.1_STABLE-4f46e5?style=for-the-badge)](#)
+  [![v2.2](https://img.shields.io/badge/VERSION-2.2_STABLE-10b981?style=for-the-badge)](#)
 
   <br />
 
@@ -110,7 +110,10 @@ npx serve .
 
 ## 🗺️ Roadmap & Progress
 
-### ✅ Completed (v2.1 STABLE)
+### ✅ Completed (v2.2 STABLE)
+- [x] **Dark Neumorphism System (v2.2)**: Integrated Dark Mode charcoal surface palette (`#1a1d24`) with Neon Teal (`#14b8a6`) accents, UIverse (`odd-rat-8`) pill switch with Sun (☀️) and Moon (🌙) SVG icons, contextual icon hiding, pure linear sliding physics, synchronized 0.5s ease-out global transitions, and `localStorage` persistence.
+- [x] **Architectural Corner Radii**: Refined global design tokens to sleek values (`--radius-card: 12px`, `--radius-btn: 10px`, `--radius-inner: 8px`) for a modern tech aesthetic.
+- [x] **Tokenized Hover Shadow Fix**: Refactored button, pill filter, close icon, and footer link hover shadows with dark-mode aware tokens (`--shadow-raised-sm-hover`) to prevent bright halo artifacts in Dark Mode.
 - [x] **Externalized JSON Dataset**: Extracted project entries into `src/projects.json` for asynchronous `fetch()` loading.
 - [x] **Smooth Elastic Modal Pop**: Implemented cubic-bezier spring scaling and 12px backdrop blur transition for modal opening & closing.
 - [x] **Bottom-Right Tile Emojis**: Positioned tile emojis to the bottom-right corner of global cards to accommodate future screenshot placeholders.
@@ -121,9 +124,6 @@ npx serve .
 - [x] **Neumorphism (Soft UI) Overhaul**: Full UI refactor with dual-shadow tokens (`--shadow-raised` & `--shadow-inset`) and soft surface `#e8ecf2`.
 - [x] **Composite Background System**: Micro-grid dot matrix stacked over an enhanced 135° directional light source gradient.
 - [x] **Lenis Smooth Scroll**: Integrated `Lenis` (`duration: 0.8s`) for enhanced wheel and anchor navigation.
-- [x] **Modern Architectural Corner Radii**: Refined global design tokens to sleek values (`--radius-card: 12px`, `--radius-btn: 10px`, `--radius-inner: 8px`) for a premium tech aesthetic.
-- [x] **Dark Neumorphism Toggle**: Integrated UIverse (`artginzburg/odd-rat-8`) rotating pill switch with Sun (☀️) and Moon (🌙) SVG icons next to `✦ portfolio` badge with dark charcoal surface `#1a1d24`, dual-shadow physics, Neon Teal `#14b8a6` accents, ultra-smooth 0.5s ease-in-out transitions, and `localStorage` persistence.
-- [x] **Externalized JSON Dataset**: Extracted project entries into `src/projects.json` for asynchronous `fetch()` loading.
 
-### 🔄 Future Ideas (v2.2+)
+### 🔄 Future Ideas (v2.3+)
 - [ ] **Project Screenshots**: Add optional high-resolution previews for modal cards and card headers.
