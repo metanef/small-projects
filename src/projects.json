@@ -67,7 +67,7 @@
     "sub": "Poker Game",
     "link": "https://metanef.github.io/poker-party/",
     "image": "",
-    "icon": "ri-spade-line",
+    "icon": "ri-poker-diamonds-line",
     "category": "game",
     "description": "Fast-paced, browser-based Texas hold'em for playing with friends."
   },
@@ -76,7 +76,7 @@
     "sub": "Investment Calculator",
     "link": "https://metanef.github.io/freel1fe/",
     "image": "",
-    "icon": "ri-rocket-line",
+    "icon": "ri-money-dollar-circle-line",
     "category": "tool",
     "description": "Interactive financial independence calculator to project your path to early retirement."
   }

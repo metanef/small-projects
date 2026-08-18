@@ -80,7 +80,7 @@ function renderGrid() {
     const caption = document.createElement('div');
     caption.className = "caption";
     const subHTML = p.sub ? `<span class="sub-title">${p.sub}</span>` : '';
-    caption.innerHTML = `<span class="cat-tag">${p.category}</span><span class="name">${p.name}</span>${subHTML}`;
+    caption.innerHTML = `<span class="cat-tag">${p.category}</span>${subHTML}<span class="name">${p.name}</span>`;
 
     const iconEl = document.createElement('i');
     iconEl.className = `icon-emoji ${p.icon || ''}`;
