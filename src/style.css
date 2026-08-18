@@ -3,7 +3,7 @@
    ========================================================= */
 
 :root {
-  /* Color Tokens */
+  /* Color Tokens (Light Mode) */
   --bg: #e8ecf2;
   --bg-dark-shadow: rgba(163, 177, 198, 0.6);
   --bg-light-shadow: rgba(255, 255, 255, 0.8);
@@ -12,10 +12,11 @@
   --shadow-raised: 8px 8px 16px var(--bg-dark-shadow), -8px -8px 16px var(--bg-light-shadow);
   --shadow-raised-hover: 12px 12px 24px rgba(163, 177, 198, 0.7), -12px -12px 24px rgba(255, 255, 255, 0.9);
   --shadow-raised-sm: 4px 4px 10px var(--bg-dark-shadow), -4px -4px 10px var(--bg-light-shadow);
+  --shadow-raised-sm-hover: 6px 6px 12px rgba(163, 177, 198, 0.7), -6px -6px 12px rgba(255, 255, 255, 0.9);
   --shadow-inset: inset 6px 6px 12px var(--bg-dark-shadow), inset -6px -6px 12px var(--bg-light-shadow);
   --shadow-inset-sm: inset 3px 3px 6px var(--bg-dark-shadow), inset -3px -3px 6px var(--bg-light-shadow);
 
-  /* Typography Colors */
+  /* Typography & Accent Colors (Indigo) */
   --ink: #1e293b;
   --ink-muted: #475569;
   --ink-light: #64748b;
@@ -23,10 +24,32 @@
   --accent-hover: #4338ca;
   --accent-light: rgba(79, 70, 229, 0.1);
 
-  /* Radii Tokens */
-  --radius-card: 20px;
-  --radius-btn: 999px;
-  --radius-inner: 14px;
+  /* Radii Tokens (Modern Sleek Architectural) */
+  --radius-card: 12px;
+  --radius-btn: 10px;
+  --radius-inner: 8px;
+  --radius-pill: 999px;
+}
+
+/* Dark Neumorphism Tokens (Neon Teal Accent) */
+[data-theme="dark"] {
+  --bg: #1a1d24;
+  --bg-dark-shadow: #111318;
+  --bg-light-shadow: #242932;
+
+  --shadow-raised: 8px 8px 18px var(--bg-dark-shadow), -8px -8px 18px var(--bg-light-shadow);
+  --shadow-raised-hover: 12px 12px 24px #0c0e12, -12px -12px 24px #2a2f3b;
+  --shadow-raised-sm: 4px 4px 10px var(--bg-dark-shadow), -4px -4px 10px var(--bg-light-shadow);
+  --shadow-raised-sm-hover: 6px 6px 14px #0c0e12, -6px -6px 14px #2a2f3b;
+  --shadow-inset: inset 6px 6px 12px var(--bg-dark-shadow), inset -6px -6px 12px var(--bg-light-shadow);
+  --shadow-inset-sm: inset 3px 3px 6px var(--bg-dark-shadow), inset -3px -3px 6px var(--bg-light-shadow);
+
+  --ink: #f1f5f9;
+  --ink-muted: #94a3b8;
+  --ink-light: #64748b;
+  --accent: #14b8a6; /* Neon Teal */
+  --accent-hover: #0d9488;
+  --accent-light: rgba(20, 184, 166, 0.15);
 }
 
 /* ---------- Global Reset & Body ---------- */
@@ -51,6 +74,148 @@ body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   overflow-x: hidden;
   min-height: 100vh;
+}
+
+/* Global Theme Transition (Synchronized 0.4s Ease-Out with Switch) */
+body,
+.tile,
+.tile .art,
+.modal,
+.modal .art,
+.modal-overlay,
+.pill,
+.eyebrow,
+.slider,
+footer a,
+.btn,
+.accent,
+header h1 span svg path {
+  transition: 
+    background-color 0.5s ease-out,
+    color 0.5s ease-out,
+    box-shadow 0.5s ease-out,
+    border-color 0.5s ease-out,
+    stroke 0.5s ease-out;
+}
+
+[data-theme="dark"] body {
+  background-image: 
+    radial-gradient(rgba(255, 255, 255, 0.08) 1.5px, transparent 1.5px),
+    linear-gradient(135deg, #242933 0%, #1a1d24 45%, #13151b 100%);
+}
+
+[data-theme="dark"] .modal-overlay {
+  background: rgba(26, 29, 36, 0.8);
+}
+
+/* ---------- Header Top Bar & Integrated Theme Toggle ---------- */
+.header-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.header-top-bar .eyebrow {
+  margin-bottom: 0;
+}
+
+/* ---------- UIverse (odd-rat-8) Neumorphic Switch ---------- */
+.switch {
+  --container-width: 3.8em;
+  font-size: 14px;
+  position: relative;
+  display: inline-block;
+  width: var(--container-width);
+  height: 1.85em;
+  user-select: none;
+}
+
+/* Hide default HTML checkbox */
+.switch .checkbox {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+/* The slider track */
+.slider {
+  --width: 0.5em;
+  --offset: 0.28em;
+  --transition-duration: 0.5s;
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: var(--bg);
+  box-shadow: var(--shadow-inset-sm);
+  transition: background-color var(--transition-duration), box-shadow var(--transition-duration);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 7px;
+}
+
+.slider .icon-sun,
+.slider .icon-moon {
+  width: 14px;
+  height: 14px;
+  pointer-events: none;
+  z-index: 1;
+  transition: opacity var(--transition-duration) ease-out, 
+              transform var(--transition-duration) ease-out, 
+              color var(--transition-duration) ease-out;
+}
+
+/* Light Mode: Sun hidden under handle on left, Moon visible on right to invite Dark mode */
+.slider .icon-sun {
+  color: var(--accent);
+  opacity: 0;
+  transform: scale(0);
+}
+
+.slider .icon-moon {
+  color: var(--ink-muted);
+  opacity: 0.85;
+  transform: scale(1);
+}
+
+/* Dark Mode: Moon hidden under handle on right, Sun visible on left to invite Light mode */
+.checkbox:checked + .slider .icon-sun {
+  color: var(--ink-muted);
+  opacity: 0.85;
+  transform: scale(1);
+}
+
+.checkbox:checked + .slider .icon-moon {
+  color: var(--accent);
+  opacity: 0;
+  transform: scale(0);
+}
+
+.slider::before {
+  position: absolute;
+  content: "";
+  height: 1.3em;
+  width: var(--width);
+  border-radius: 5px;
+  left: var(--offset);
+  bottom: var(--offset);
+  background-color: var(--accent);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  transition: transform var(--transition-duration) ease-out, background-color var(--transition-duration) ease-out;
+  z-index: 2;
+}
+
+.checkbox:checked + .slider {
+  background-color: var(--bg);
+  box-shadow: var(--shadow-inset);
+}
+
+.checkbox:checked + .slider::before {
+  transform: translateX(calc(var(--container-width) - var(--offset) * 2 - var(--width)));
 }
 
 ::selection {
@@ -126,7 +291,7 @@ header p.sub {
   padding: 0 24px 40px;
   display: flex;
   flex-wrap: wrap;
-  gap: 14px;
+  gap: 30px;
   justify-content: center;
 }
 
@@ -147,7 +312,7 @@ header p.sub {
 
 .pill:hover {
   color: var(--ink);
-  box-shadow: 6px 6px 12px rgba(163, 177, 198, 0.7), -6px -6px 12px rgba(255, 255, 255, 0.9);
+  box-shadow: var(--shadow-raised-sm-hover);
   transform: translateY(-2px);
 }
 
@@ -396,6 +561,7 @@ main {
   background: var(--bg);
   color: var(--accent);
   box-shadow: var(--shadow-raised);
+  border-radius: var(--radius-pill);
 }
 
 .btn.primary:hover {
@@ -416,7 +582,7 @@ main {
 
 .btn.ghost:hover {
   color: var(--ink);
-  box-shadow: 6px 6px 12px rgba(163, 177, 198, 0.6), -6px -6px 12px rgba(255, 255, 255, 0.8);
+  box-shadow: var(--shadow-raised-sm-hover);
   transform: translateY(-1px);
 }
 
@@ -448,7 +614,7 @@ main {
 
 .close-x:hover {
   color: var(--ink);
-  box-shadow: 6px 6px 12px rgba(163, 177, 198, 0.6), -6px -6px 12px rgba(255, 255, 255, 0.8);
+  box-shadow: var(--shadow-raised-sm-hover);
   transform: scale(1.05);
 }
 
@@ -514,7 +680,7 @@ footer a {
 
 footer a:hover {
   color: var(--accent);
-  box-shadow: 6px 6px 12px rgba(163, 177, 198, 0.6), -6px -6px 12px rgba(255, 255, 255, 0.8);
+  box-shadow: var(--shadow-raised-sm-hover);
   transform: translateY(-2px);
 }
 

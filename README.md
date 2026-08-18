@@ -121,8 +121,9 @@ npx serve .
 - [x] **Neumorphism (Soft UI) Overhaul**: Full UI refactor with dual-shadow tokens (`--shadow-raised` & `--shadow-inset`) and soft surface `#e8ecf2`.
 - [x] **Composite Background System**: Micro-grid dot matrix stacked over an enhanced 135° directional light source gradient.
 - [x] **Lenis Smooth Scroll**: Integrated `Lenis` (`duration: 0.8s`) for enhanced wheel and anchor navigation.
-- [x] **GitHub Pages CI/CD**: Workflow configured in `.github/workflows/static.yml`.
+- [x] **Modern Architectural Corner Radii**: Refined global design tokens to sleek values (`--radius-card: 12px`, `--radius-btn: 10px`, `--radius-inner: 8px`) for a premium tech aesthetic.
+- [x] **Dark Neumorphism Toggle**: Integrated UIverse (`artginzburg/odd-rat-8`) rotating pill switch with Sun (☀️) and Moon (🌙) SVG icons next to `✦ portfolio` badge with dark charcoal surface `#1a1d24`, dual-shadow physics, Neon Teal `#14b8a6` accents, ultra-smooth 0.5s ease-in-out transitions, and `localStorage` persistence.
+- [x] **Externalized JSON Dataset**: Extracted project entries into `src/projects.json` for asynchronous `fetch()` loading.
 
 ### 🔄 Future Ideas (v2.2+)
 - [ ] **Project Screenshots**: Add optional high-resolution previews for modal cards and card headers.
-- [ ] **Dark Neumorphism Toggle**: Optional dark mode color palette.

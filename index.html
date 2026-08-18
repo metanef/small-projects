@@ -29,11 +29,26 @@
 
   <!-- Header -->
   <header id="top">
-    <span class="eyebrow">✦ portfolio</span>
+    <div class="header-top-bar">
+      <span class="eyebrow">✦ portfolio</span>
+      <label class="switch" title="Toggle Dark Mode">
+        <input class="checkbox" id="themeToggle" type="checkbox" aria-label="Toggle Dark Mode">
+        <span class="slider">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+          </svg>
+        </span>
+      </label>
+    </div>
     <h1>
       <span class="accent">small projects
         <svg viewBox="0 0 200 14" preserveAspectRatio="none">
-          <path d="M2 10 Q 50 2, 100 8 T 198 6" stroke="#4f46e5" stroke-width="4" fill="none" stroke-linecap="round" />
+          <path d="M2 10 Q 50 2, 100 8 T 198 6" stroke="var(--accent)" stroke-width="4" fill="none"
+            stroke-linecap="round" />
         </svg>
       </span>
     </h1>
@@ -55,6 +70,7 @@
     </a>
     <div class="links">
       <a href="https://github.com/metanef/small-projects" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://eloi.framer.website/" target="_blank" rel="noopener">Contact</a>
       <a href="#top">Back to top ↑</a>
     </div>
     <p>Made with fun and too many open tabs - © 2026 metanef</p>
