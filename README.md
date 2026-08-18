@@ -111,6 +111,7 @@ npx serve .
 ## 🗺️ Roadmap & Progress
 
 ### ✅ Completed (v2.3 STABLE)
+- [x] **Remix Icon Integration (v2.3)**: Replaced plain text emojis with crisp vector icons from Remix Icon CDN (`remixicon@4.6.0`), mapped via `icon` class attributes in `src/projects.json` and styled dynamically with accent theme colors (`var(--accent)`).
 - [x] **Vector SVG Logo & Transparent Cutout (v2.3)**: Integrated `fill-rule="evenodd"` in `src/logo.svg` to create a true transparent hole in the letter 'P', auto-adapting accent colors (`var(--accent)`) across Light and Dark mode.
 - [x] **Footer Layout Refinement (v2.3)**: Removed redundant footer logo element to streamline bottom-page aesthetic while keeping navigation links clean.
 - [x] **Complete Codebase Clean-Up (v2.3)**: Refactored and cleaned `index.html` (formatting), `src/style.css` (dead selector cleanup), and `src/script.js` (standardized `addEventListener` logic & HTTP guards).

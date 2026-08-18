@@ -402,15 +402,16 @@ main {
   gap: 4px;
 }
 
-/* Emoji in bottom-right corner of global tile card */
+/* Icon in bottom-right corner of global tile card */
 .tile .icon-emoji {
   position: absolute;
   bottom: 14px;
   right: 16px;
-  font-size: 1.65rem;
+  font-size: 1.5rem;
   line-height: 1;
+  color: var(--accent);
   user-select: none;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08));
+  transition: color 0.5s ease-out, transform 0.2s ease;
 }
 
 .tile .cat-tag {
@@ -490,14 +491,16 @@ main {
   position: absolute;
   bottom: 12px;
   right: 14px;
-  font-size: 2rem;
+  font-size: 2.2rem;
   line-height: 1;
+  color: var(--accent);
   padding: 8px 4px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   user-select: none;
   z-index: 2;
+  transition: color 0.5s ease-out;
 }
 
 .modal .body {

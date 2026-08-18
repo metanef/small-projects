@@ -81,13 +81,12 @@ function renderGrid() {
     caption.className = "caption";
     caption.innerHTML = `<span class="cat-tag">${p.category}</span><span class="name">${p.name}</span>`;
 
-    const emoji = document.createElement('span');
-    emoji.className = "icon-emoji";
-    emoji.textContent = p.emoji;
+    const iconEl = document.createElement('i');
+    iconEl.className = `icon-emoji ${p.icon || ''}`;
 
     tile.appendChild(art);
     tile.appendChild(caption);
-    tile.appendChild(emoji);
+    tile.appendChild(iconEl);
     grid.appendChild(tile);
   });
 }
@@ -104,7 +103,7 @@ function openModal(p) {
     modalArt.style.backgroundImage = "none";
   }
 
-  modalArt.innerHTML = `<span class="icon-emoji">${p.emoji}</span>`;
+  modalArt.innerHTML = `<i class="icon-emoji ${p.icon || ''}"></i>`;
   modalCat.textContent = p.category;
   modalName.textContent = p.name;
   modalDesc.textContent = p.description;
