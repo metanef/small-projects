@@ -79,7 +79,8 @@ function renderGrid() {
 
     const caption = document.createElement('div');
     caption.className = "caption";
-    caption.innerHTML = `<span class="cat-tag">${p.category}</span><span class="name">${p.name}</span>`;
+    const subHTML = p.sub ? `<span class="sub-title">${p.sub}</span>` : '';
+    caption.innerHTML = `<span class="cat-tag">${p.category}</span><span class="name">${p.name}</span>${subHTML}`;
 
     const iconEl = document.createElement('i');
     iconEl.className = `icon-emoji ${p.icon || ''}`;
@@ -105,7 +106,7 @@ function openModal(p) {
 
   modalArt.innerHTML = `<i class="icon-emoji ${p.icon || ''}"></i>`;
   modalCat.textContent = p.category;
-  modalName.textContent = p.name;
+  modalName.textContent = p.sub ? `${p.name} — ${p.sub}` : p.name;
   modalDesc.textContent = p.description;
   modalLink.href = p.link;
 
