@@ -144,8 +144,10 @@ header h1 span svg path {
 /* The slider track */
 .slider {
   --width: 0.5em;
+  --hover-width: 0.8em;
   --offset: 0.28em;
-  --transition-duration: 0.5s;
+  --transition-duration: 0.45s;
+  --short-transition-duration: 0.20s;
   position: absolute;
   cursor: pointer;
   inset: 0;
@@ -206,17 +208,33 @@ header h1 span svg path {
   left: var(--offset);
   background-color: var(--accent);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-  transition: transform var(--transition-duration) ease-out, background-color var(--transition-duration) ease-out;
+  transition: transform var(--short-transition-duration), 
+              width var(--short-transition-duration), 
+              border-radius var(--short-transition-duration), 
+              background-color var(--short-transition-duration);
   z-index: 2;
 }
 
 .checkbox:checked + .slider {
   background-color: var(--bg);
-  box-shadow: var(--shadow-inset);
+  box-shadow: var(--shadow-inset-sm);
 }
 
 .checkbox:checked + .slider::before {
   transform: translateX(calc(var(--container-width) - var(--offset) * 2 - var(--width)));
+}
+
+/* Hover effect: Light Mode handle stretches into right-facing D-shape */
+.switch:hover .checkbox:not(:checked) + .slider::before {
+  width: var(--hover-width);
+  border-radius: 5px 50% 50% 5px;
+}
+
+/* Hover effect: Dark Mode handle stretches into left-facing D-shape */
+.switch:hover .checkbox:checked + .slider::before {
+  width: var(--hover-width);
+  transform: translateX(calc(var(--container-width) - var(--offset) * 2 - var(--hover-width)));
+  border-radius: 50% 5px 5px 50%;
 }
 
 ::selection {
