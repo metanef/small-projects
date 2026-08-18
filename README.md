@@ -136,3 +136,4 @@ npx serve .
 
 ### 🔄 Future Ideas (v2.6+)
 - [ ] **Project Screenshots**: Add optional high-resolution previews for modal cards and card headers.
+- [ ] **Locked / WIP Tile State**: Ability to lock tiles undergoing updates or work-in-progress (`locked` status in `projects.json`), greying out the card, disabling interactions, and displaying a centered lock icon (`ri-lock-line`) overlay.
