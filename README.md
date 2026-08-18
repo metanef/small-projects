@@ -7,7 +7,7 @@
   **A vibrant, interactive, and tactile showcase of web experiments, tools, games, and mini-apps built with a strict Neumorphism (Soft UI) design system.**
 
   [![Live Demo](https://img.shields.io/badge/Live_Demo-play_online-10b981?style=for-the-badge&logo=githubpages&logoColor=white)](https://metanef.github.io/small-projects/)
-  [![v2.2](https://img.shields.io/badge/VERSION-2.2_STABLE-10b981?style=for-the-badge)](#)
+  [![v2.3](https://img.shields.io/badge/VERSION-2.3_STABLE-10b981?style=for-the-badge)](#)
 
   <br />
 
@@ -29,7 +29,7 @@ Try the application live: **[Small Projects Portfolio](https://metanef.github.io
 ### 🎨 Neumorphic (Soft UI) Web Showcase
 - **Zero Heavy Frameworks**: Built strictly with Vanilla HTML5, CSS3, and JavaScript for lightning-fast page loading and maximum performance.
 - **Strict Neumorphism Design System**: Tactile dual-shadow extrusion physics (`8px 8px 16px`), inset sunken art viewports, smooth 20px–28px rounded corners, and zero hard outline borders.
-- **Custom Engraved SP Logo & Favicon**: Custom vector monogram (`src/logo.svg`) with carved bevel inset highlights, integrated as high-DPI SVG favicon and footer back-to-top button.
+- **Vector SP Logo with Transparent Cutout**: Custom vector monogram (`src/logo.svg`) with an `evenodd` geometric fill rule creating a true transparent cutout in the letter 'P', with automatic theme color inheritance (`var(--accent)`).
 - **Composite Background Lighting**: Combined micro-grid dot matrix stacked over an enhanced 135° directional light source gradient for high-end visual depth.
 - **Responsive 3×3 Grid**: Clean 3-column fixed layout (`max-width: 1320px`) displaying 9 handcrafted mini-projects.
 - **Ultra-Smooth Scrolling**: Integrated Lenis.js (`duration: 0.8s`) for fluid wheel interaction and smooth anchor scrolling.
@@ -86,7 +86,7 @@ Try the application live: **[Small Projects Portfolio](https://metanef.github.io
 ├── index.html           # Main HTML structure, Lenis initialization & SVG favicon
 ├── list.txt             # Reference list of the 9 featured projects & live links
 └── src/
-    ├── logo.svg         # Carved Neumorphic SP Monogram SVG logo & favicon
+    ├── logo.svg         # Cleaned Neumorphic SP Monogram SVG logo & favicon (evenodd transparent cutout)
     ├── projects.json    # Project dataset (names, URLs, categories, descriptions, emojis)
     ├── style.css        # Complete Neumorphic design system, animations & responsive grid
     └── script.js        # Dynamic dataset fetching, filtering logic & modal handlers
@@ -110,7 +110,10 @@ npx serve .
 
 ## 🗺️ Roadmap & Progress
 
-### ✅ Completed (v2.2 STABLE)
+### ✅ Completed (v2.3 STABLE)
+- [x] **Vector SVG Logo & Transparent Cutout (v2.3)**: Integrated `fill-rule="evenodd"` in `src/logo.svg` to create a true transparent hole in the letter 'P', auto-adapting accent colors (`var(--accent)`) across Light and Dark mode.
+- [x] **Footer Layout Refinement (v2.3)**: Removed redundant footer logo element to streamline bottom-page aesthetic while keeping navigation links clean.
+- [x] **Complete Codebase Clean-Up (v2.3)**: Refactored and cleaned `index.html` (formatting), `src/style.css` (dead selector cleanup), and `src/script.js` (standardized `addEventListener` logic & HTTP guards).
 - [x] **Dark Neumorphism System (v2.2)**: Integrated Dark Mode charcoal surface palette (`#1a1d24`) with Neon Teal (`#14b8a6`) accents, UIverse (`odd-rat-8`) pill switch with Sun (☀️) and Moon (🌙) SVG icons, contextual icon hiding, pure linear sliding physics, synchronized 0.5s ease-out global transitions, and `localStorage` persistence.
 - [x] **Architectural Corner Radii**: Refined global design tokens to sleek values (`--radius-card: 12px`, `--radius-btn: 10px`, `--radius-inner: 8px`) for a modern tech aesthetic.
 - [x] **Tokenized Hover Shadow Fix**: Refactored button, pill filter, close icon, and footer link hover shadows with dark-mode aware tokens (`--shadow-raised-sm-hover`) to prevent bright halo artifacts in Dark Mode.
@@ -118,12 +121,8 @@ npx serve .
 - [x] **Smooth Elastic Modal Pop**: Implemented cubic-bezier spring scaling and 12px backdrop blur transition for modal opening & closing.
 - [x] **Bottom-Right Tile Emojis**: Positioned tile emojis to the bottom-right corner of global cards to accommodate future screenshot placeholders.
 - [x] **Synchronized Hover Physics**: Fixed tile hover transforms so card elements elevate in total visual sync with the card.
-- [x] **Codebase Polish & Refactoring**: Cleaned and formatted `index.html` (SEO, WCAG accessibility), `style.css` (organized design tokens), and `script.js` (ES6 guards).
 - [x] **Live Project Link Mapping**: Integrated active GitHub Pages demo URLs for all 9 projects.
-- [x] **Custom Engraved Neumorphic Logo & Favicon**: Sculpted SP monogram (`src/logo.svg`) with carved bevel inset depth, configured as favicon and footer back-to-top button.
-- [x] **Neumorphism (Soft UI) Overhaul**: Full UI refactor with dual-shadow tokens (`--shadow-raised` & `--shadow-inset`) and soft surface `#e8ecf2`.
-- [x] **Composite Background System**: Micro-grid dot matrix stacked over an enhanced 135° directional light source gradient.
 - [x] **Lenis Smooth Scroll**: Integrated `Lenis` (`duration: 0.8s`) for enhanced wheel and anchor navigation.
 
-### 🔄 Future Ideas (v2.3+)
+### 🔄 Future Ideas (v2.4+)
 - [ ] **Project Screenshots**: Add optional high-resolution previews for modal cards and card headers.

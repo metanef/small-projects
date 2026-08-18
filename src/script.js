@@ -25,6 +25,7 @@ const closeModalBtn = document.getElementById('closeModal');
 async function loadProjects() {
   try {
     const res = await fetch('src/projects.json');
+    if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
     projects = await res.json();
     categories = ["all", ...new Set(projects.map(p => p.category))];
     renderFilters();
@@ -43,11 +44,11 @@ function renderFilters() {
     const btn = document.createElement('button');
     btn.className = `pill${cat === activeCat ? " active" : ""}`;
     btn.textContent = cat;
-    btn.onclick = () => {
+    btn.addEventListener('click', () => {
       activeCat = cat;
       renderFilters();
       renderGrid();
-    };
+    });
     filtersEl.appendChild(btn);
   });
 }
@@ -63,10 +64,10 @@ function renderGrid() {
     const tile = document.createElement('a');
     tile.className = "tile";
     tile.href = "#";
-    tile.onclick = (e) => {
+    tile.addEventListener('click', (e) => {
       e.preventDefault();
       openModal(p);
-    };
+    });
 
     const art = document.createElement('div');
     art.className = "art";
@@ -117,12 +118,23 @@ function closeModal() {
 }
 
 // Modal Event Listeners
-if (closeModalBtn) closeModalBtn.onclick = closeModal;
-if (overlay) overlay.onclick = (e) => { if (e.target === overlay) closeModal(); };
-document.addEventListener('keydown', (e) => { if (e.key === "Escape") closeModal(); });
+if (closeModalBtn) {
+  closeModalBtn.addEventListener('click', closeModal);
+}
+
+if (overlay) {
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closeModal();
+  });
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === "Escape") closeModal();
+});
 
 /* ---------- Smooth Scroll (Lenis) ---------- */
 let lenisInstance = null;
+
 if (typeof Lenis !== 'undefined') {
   lenisInstance = new Lenis({
     duration: 0.8,
@@ -148,5 +160,30 @@ document.querySelectorAll('a[href="#top"]').forEach(anchor => {
   });
 });
 
+/* ---------- Dark Neumorphism Theme Switcher ---------- */
+const themeCheckbox = document.getElementById('themeToggle');
+
+function initTheme() {
+  const savedTheme = localStorage.getItem('theme');
+  const isDark = savedTheme === 'dark' || (!savedTheme && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+  if (isDark) {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    if (themeCheckbox) themeCheckbox.checked = true;
+  } else {
+    document.documentElement.setAttribute('data-theme', 'light');
+    if (themeCheckbox) themeCheckbox.checked = false;
+  }
+}
+
+if (themeCheckbox) {
+  themeCheckbox.addEventListener('change', (e) => {
+    const newTheme = e.target.checked ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+  });
+}
+
 /* ---------- App Initialization ---------- */
+initTheme();
 loadProjects();
