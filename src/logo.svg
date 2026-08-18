@@ -1,12 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1288 1288" width="500" height="500" preserveAspectRatio="none">
   <style>
     .logo-main {
-      fill: var(--accent, #6366f1);
+      fill: #4f46e5;
       transition: fill 0.5s ease-out;
     }
     @media (prefers-color-scheme: dark) {
       .logo-main {
-        fill: var(--accent, #14b8a6);
+        fill: #14b8a6;
       }
     }
   </style>
