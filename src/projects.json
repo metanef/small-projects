@@ -3,7 +3,7 @@
     "name": "Casio WQV-1",
     "sub": "WristCam Emulator",
     "link": "https://metanef.github.io/casio-wqv-1/",
-    "image": "",
+    "image": "src/img/casio.png",
     "icon": "ri-camera-3-line",
     "category": "app",
     "description": "A retro web & mobile emulator reproducing the iconic 2000s Casio WQV-1 Wrist Camera smartwatch."
@@ -12,7 +12,7 @@
     "name": "How I Met A Pingu",
     "sub": "Storytelling Game",
     "link": "https://metanef.github.io/pingu/",
-    "image": "",
+    "image": "src/img/pingu.png",
     "icon": "ri-snowflake-line",
     "category": "game",
     "description": "A whimsical story game to learn improv and storytelling."
@@ -21,7 +21,7 @@
     "name": "W4SD",
     "sub": "Local Coop Hub",
     "link": "https://metanef.github.io/coop-game/",
-    "image": "",
+    "image": "src/img/coop-game.png",
     "icon": "ri-gamepad-line",
     "category": "app",
     "description": "A web hub referencing every local multiplayer games for friends."
@@ -30,7 +30,7 @@
     "name": "Sparks & Sync",
     "sub": "Card Game",
     "link": "https://metanef.github.io/mismatched-libido/",
-    "image": "",
+    "image": "src/img/mismatched-libido.png",
     "icon": "ri-sparkling-2-line",
     "category": "game",
     "description": "A playful conversation & decision card game for couples to bridge desires."
@@ -39,7 +39,7 @@
     "name": "Annyeong",
     "sub": "15MinToLearnKorean",
     "link": "https://metanef.github.io/annyeong-15mintolearnkorean/",
-    "image": "",
+    "image": "src/img/15MinToLearnKorean.png",
     "icon": "ri-translate-2",
     "category": "app",
     "description": "A clean, bite-sized web app to master Hangul reading & writing in 15 minutes."
@@ -48,7 +48,7 @@
     "name": "Frame",
     "sub": "Habit Tracker",
     "link": "https://metanef.github.io/frame/",
-    "image": "",
+    "image": "src/img/frame.png",
     "icon": "ri-calendar-check-line",
     "category": "app",
     "description": "An offline-first personal journaling and daily habit tracking progressive web app."
@@ -57,7 +57,7 @@
     "name": "VaultGuard",
     "sub": "Bitwarden Audit",
     "link": "https://metanef.github.io/bitwarden-vault-audit/",
-    "image": "",
+    "image": "src/img/vaultguard.png",
     "icon": "ri-shield-keyhole-line",
     "category": "tool",
     "description": "Analyze password strength, reuse, and security metrics for Bitwarden vaults locally."
@@ -66,7 +66,7 @@
     "name": "Poker Party",
     "sub": "Poker Game",
     "link": "https://metanef.github.io/poker-party/",
-    "image": "",
+    "image": "src/img/poker-party.png",
     "icon": "ri-poker-diamonds-line",
     "category": "game",
     "description": "Fast-paced, browser-based Texas hold'em for playing with friends."
@@ -75,7 +75,7 @@
     "name": "FreeL1fe",
     "sub": "Investment Calculator",
     "link": "https://metanef.github.io/freel1fe/",
-    "image": "",
+    "image": "src/img/freel1fe.png",
     "icon": "ri-money-dollar-circle-line",
     "category": "tool",
     "description": "Interactive financial independence calculator to project your path to early retirement."
