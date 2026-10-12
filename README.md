@@ -2,7 +2,7 @@
 
   <img src="src/logo.svg" width="110" height="110" alt="Small Projects Logo" />
 
-# Small Projects ✦ Portfolio 🎨
+# Small Projects | Portfolio
 
 **A vibrant, interactive, and tactile showcase of web experiments, tools, games, and mini-apps built with a strict Neumorphism (Soft UI) design system.**
 
@@ -42,17 +42,6 @@ Try the application live: **[Small Projects Portfolio](https://metanef.github.io
 | `ri-shield-keyhole-line` | **VaultGuard**        | Vault Audit        |  `tool`  | [Demo](https://metanef.github.io/bitwarden-vault-audit/)       | Analyze password strength, reuse, and security metrics for Bitwarden vaults locally.    |
 |      `ri-dice-line`      | **Poker Party**       | Poker Game         |  `game`  | [Demo](https://metanef.github.io/poker-party/)                 | Fast-paced, browser-based Texas hold'em for playing with friends.                       |
 |     `ri-rocket-line`     | **FreeL1fe**          | Financial Calc     |  `tool`  | [Demo](https://metanef.github.io/freel1fe/)                    | Interactive financial independence calculator to project your path to early retirement. |
-
----
-
-## ✨ Features
-
-- **🧩 Balanced 3×3 Project Grid**: Displays 9 distinct project cards with vector Remix Icons in the bottom-right corner, subtitle text, category tags, and dual-shadow relief.
-- **🏷️ Standardized Categories**: Filter projects seamlessly between `all`, `game`, `tool`, and `app` with tactile inset/raised category pills.
-- **🔍 Spring-Pop Modal Dialog**: Click any project tile to launch a raised neumorphic modal card featuring smooth cubic-bezier scaling (`transform: scale(0.92)` ➔ `scale(1)`), backdrop blur (`blur(12px)`), and a circular close button.
-- **📜 Lenis Smooth Scroll**: Silky-smooth scrolling experience across desktop and mobile devices.
-- **🎨 Neumorphic Design Tokens**: Custom CSS variables for surface tones (`#e8ecf2`), raised shadows, inset shadows, and high-contrast WCAG typography (`#1e293b`).
-- **📱 Fully Responsive**: Fluid grid adaptation across desktop, tablet, and mobile screens.
 
 ---
 
@@ -101,10 +90,10 @@ npx serve .
 
 ---
 
-## 🗺️ Roadmap & Progress
+## 🗺️ Roadmap
 
 <details>
-<summary><b>✅ Completed (v2.5 STABLE)</b></summary>
+<summary><b>Completed (v2.5 STABLE)</b></summary>
 
 - [x] **Dynamic Theme Favicon Adaptation (v2.5)**: Implemented `updateFavicon()` JS module generating real-time SVG Data URIs matching active Light Indigo (`#4f46e5`) and Dark Neon Teal (`#14b8a6`) theme accent colors.
 - [x] **Equalized Switch & Badge Height (33px) (v2.5)**: Standardized `.eyebrow` badge and dark-mode toggle switch (`.switch`) to an exact physical height of `33px` (`box-sizing: border-box`) and matching `10px` corner radii.
@@ -126,6 +115,9 @@ npx serve .
 
 </details>
 
-### 🔄 Future Ideas (v2.6+)
+<details open>
+<summary><b>Future Ideas (v2.6+)</b></summary>
 
 - [ ] **Locked / WIP Tile State**: Ability to lock tiles undergoing updates or work-in-progress (`locked` status in `projects.json`), greying out the card, disabling interactions, and displaying a centered lock icon (`ri-lock-line`) overlay.
+
+</details>
