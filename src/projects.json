@@ -1,5 +1,23 @@
 [
   {
+    "name": "M-Vault",
+    "sub": "Monster Energy Tracker",
+    "link": "https://metanef.github.io/mvault/",
+    "image": "src/img/m-vault.png",
+    "icon": "ri-flashlight-line",
+    "category": "app",
+    "description": "A virtual vitrine and collection tracker to catalog, discover, and track owned Monster Energy cans."
+  },
+  {
+    "name": "Isaac Tracker",
+    "sub": "Achievement Tracker",
+    "link": "https://metanef.github.io/isaac-tracker/",
+    "image": "src/img/isaac-tracker.png",
+    "icon": "ri-trophy-line",
+    "category": "app",
+    "description": "A comprehensive progress tracker to monitor achievements in The Binding of Isaac."
+  },
+  {
     "name": "Casio WQV-1",
     "sub": "WristCam Emulator",
     "link": "https://metanef.github.io/casio-wqv-1/",
